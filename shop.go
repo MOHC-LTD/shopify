@@ -10,4 +10,6 @@ type Shop interface {
 	Orders() OrderRepository
 	// Fulfillments - you can use the Fulfillment resource to view, create, modify, or delete an order's or fulfillment order's fulfillments.
 	Fulfillments() FulfillmentRepository
+	// FulfillmentEvents represent tracking events that belong to a fulfillment of one or more items in an order.
+	FulfillmentEvents() FulfillmentEventRepository
 }
