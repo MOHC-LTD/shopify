@@ -8,8 +8,8 @@ See the [Shopify developer documentation](https://shopify.dev).
 
 - [Github authentication](#github-authentication)
 - [Installation](#installation)
-- [How to contribute](#how-to-contribute)
 - [Implementations](#implementations)
+- [How to contribute](#how-to-contribute)
 
 ## Github authentication
 
