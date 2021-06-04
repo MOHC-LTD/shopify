@@ -1,7 +1,6 @@
 package shopify
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -110,20 +109,4 @@ type OrderRepository interface {
 	Get(id int64) (Order, error)
 	// Close closes an order
 	Close(id int64) error
-}
-
-// ErrOrderNotFound is thrown when no order is found with the ID
-type ErrOrderNotFound struct {
-	id int64
-}
-
-func (err ErrOrderNotFound) Error() string {
-	return fmt.Sprintf("order %v not found", err.id)
-}
-
-// NewErrOrderNotFound builds the error
-func NewErrOrderNotFound(id int64) ErrOrderNotFound {
-	return ErrOrderNotFound{
-		id,
-	}
 }
