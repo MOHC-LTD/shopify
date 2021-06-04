@@ -21,7 +21,7 @@ go env -w GOPRIVATE=github.com/MOHC-LTD
 ```
 
 Generate a [Github personal access token](https://github.com/settings/tokens), and set up
-global github authentication on your machine
+global Github authentication on your machine
 
 ```sh
 git config --global url."https://${username}:${access_token}@github.com".insteadOf "https://github.com"
