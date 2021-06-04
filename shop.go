@@ -3,6 +3,9 @@ package shopify
 // Shop represents a shopify shop
 /*
 	All shopify development documentation can be found at
-	https://shopify.dev.
+	https://shopify.dev
 */
-type Shop struct {}
+type Shop interface {
+	// Orders are the orders in the shop
+	Orders() OrderRepository
+}
