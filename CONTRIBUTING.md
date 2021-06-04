@@ -1,5 +1,9 @@
 # How to contribute
 
+## Contents
+
+- [Git hooks](#-git-hooks)
+
 ## 🪝 Git hooks
 
 This project includes two git hooks
