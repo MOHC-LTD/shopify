@@ -28,6 +28,24 @@ global Github authentication on your machine
 git config --global url."https://${username}:${access_token}@github.com".insteadOf "https://github.com"
 ```
 
+## Docker
+
+To build applications that consuming this module using docker, you will need to allow the docker container to authenticate with Github.
+
+Do this by adding the following lines to your Dockerfile.
+
+```sh
+ARG authToken
+
+RUN go env -w GOPRIVATE=github.com/MOHC-LTD
+
+RUN apk add git
+
+RUN git config --global url."https://golang:$authToken@github.com".insteadOf "https://github.com"
+```
+
+Then, when building your container, set the docker argument `authToken` to the value of your Github access token.
+
 ## Installation
 
 Install the module using
