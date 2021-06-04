@@ -8,6 +8,7 @@ See the [Shopify developer documentation](https://shopify.dev).
 
 - [Github authentication](#github-authentication)
 - [Installation](#installation)
+- [Docker](#docker)
 - [Implementations](#implementations)
 - [How to contribute](#how-to-contribute)
 
@@ -28,6 +29,14 @@ global Github authentication on your machine
 git config --global url."https://${username}:${access_token}@github.com".insteadOf "https://github.com"
 ```
 
+## Installation
+
+Install the module using
+
+```sh
+go get -u github.com/MOHC-LTD/shopify
+```
+
 ## Docker
 
 To build applications that consuming this module using docker, you will need to allow the docker container to authenticate with Github.
@@ -45,14 +54,6 @@ RUN git config --global url."https://golang:$authToken@github.com".insteadOf "ht
 ```
 
 Then, when building your container, set the docker argument `authToken` to the value of your Github access token.
-
-## Installation
-
-Install the module using
-
-```sh
-go get -u github.com/MOHC-LTD/shopify
-```
 
 ## Implementations
 
