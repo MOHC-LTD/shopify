@@ -2,12 +2,6 @@ package shopify
 
 import "time"
 
-// FulfillmentShipmentStatusInTransit is the shipment status of a fulfillment that is in transit
-const FulfillmentShipmentStatusInTransit = "in_transit"
-
-// FulfillmentShipmentStatusDelivered is the shipment status of a fulfillment that is delivered
-const FulfillmentShipmentStatusDelivered = "delivered"
-
 // Fulfillment created when an order is fulfilled by a warehouse
 type Fulfillment struct {
 	// ID is the ID of the fulfillment
