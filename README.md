@@ -37,4 +37,4 @@ go get -u github.com/MOHC-LTD/shopify
 
 ## How to contribute
 
-Please read the [contributing guide](./CONTRIBUTING.md)
+Something missing or not working as expected? See our [contribution guide](./CONTRIBUTING.md).
