@@ -6,28 +6,10 @@ See the [Shopify developer documentation](https://shopify.dev).
 
 ## Contents
 
-- [Github authentication](#github-authentication)
 - [Installation](#installation)
-- [Docker](#docker)
+- [Usage](#usage)
 - [Implementations](#implementations)
 - [How to contribute](#how-to-contribute)
-
-## Github authentication
-
-As this is a private Github repository, you will need to set up private go modules.
-
-First set the `GOPRIVATE` go environment variable.
-
-```sh
-go env -w GOPRIVATE=github.com/MOHC-LTD
-```
-
-Generate a [Github personal access token](https://github.com/settings/tokens), and set up
-global Github authentication on your machine
-
-```sh
-git config --global url."https://${username}:${access_token}@github.com".insteadOf "https://github.com"
-```
 
 ## Installation
 
@@ -37,23 +19,34 @@ Install the module using
 go get -u github.com/MOHC-LTD/shopify
 ```
 
-## Docker
+## Usage
 
-To build applications that consuming this module using docker, you will need to allow the docker container to authenticate with Github.
+Use this package to create functionality backed by Shopify.
 
-Do this by adding the following lines to your Dockerfile.
+```go
+type ExampleService struct {
+    shop shopify.Shop
+}
 
-```sh
-ARG authToken
+func NewExampleService(shop shopify.Shop) ExampleService {
+    return ExampleService{
+        shop,
+    }
+}
 
-RUN go env -w GOPRIVATE=github.com/MOHC-LTD
+func (service ExampleService) CloseOrder(orderID int64) {
+    err := service.shop.Orders().Close(orderID)
 
-RUN apk add git
+    if err != nil {
+        return err
+    }
 
-RUN git config --global url."https://golang:$authToken@github.com".insteadOf "https://github.com"
+    return nil
+}
 ```
 
-Then, when building your container, set the docker argument `authToken` to the value of your Github access token.
+Then either test the functionality using the [mockshopify](https://github.com/MOHC-LTD/mockshopify) package, or inject the [httpshopify](https://github.com/MOHC-LTD/httpshopify)
+to create a real connection to Shopify.
 
 ## Implementations
 
