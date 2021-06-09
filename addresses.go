@@ -19,9 +19,9 @@ type Address struct {
 	// LastName - the last name of the person associated with the address
 	LastName string
 	// Latitude - the latitude of the address
-	Latitude string
+	Latitude float64
 	// Longitude - the longitude of the address
-	Longitude string
+	Longitude float64
 	// Name - the full name of the person associated with the address
 	Name string
 	// Phone - the phone number at the address
