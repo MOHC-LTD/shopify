@@ -5,7 +5,7 @@ import "time"
 // Variants is a collection of variants
 type Variants []Variant
 
-// Variant is a version of a `Product` for a shop.
+// Variant is a specific version of a product
 type Variant struct {
 	// ID is the unique numeric identifier for the product variant.
 	ID int64
