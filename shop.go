@@ -12,4 +12,6 @@ type Shop interface {
 	Fulfillments() FulfillmentRepository
 	// FulfillmentEvents represent tracking events that belong to a fulfillment of one or more items in an order.
 	FulfillmentEvents() FulfillmentEventRepository
+	// Variants represents options or versions that make up an individual product.
+	Variants() VariantRepository
 }
