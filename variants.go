@@ -27,6 +27,6 @@ type Variant struct {
 
 // VariantRepository maintains the product variants of a shop.
 type VariantRepository interface {
-	// Get gets an order
-	Get(SKU string) (Variant, error)
+	// Get gets a variant
+	Get(id int64) (Variant, error)
 }
