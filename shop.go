@@ -14,6 +14,6 @@ type Shop interface {
 	FulfillmentEvents() FulfillmentEventRepository
 	// Variants represents options or versions that make up an individual product.
 	Variants() VariantRepository
-	// Products are the products that are sold within a shop
+	// Products are the items that are sold by the shop.
 	Products() ProductRepository
 }
