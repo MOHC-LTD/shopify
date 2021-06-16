@@ -40,8 +40,17 @@ type Product struct {
 	Vendor string
 }
 
+// ProductQuery are properties that can be used to filter the returned products
+// See https://shopify.dev/docs/admin-api/rest/reference/products/product#index-2021-04
+type ProductQuery struct {
+	/*
+		Return only products specified by a list of product IDs.
+	*/
+	IDs []int64
+}
+
 // ProductRepository maintains the products of a shop.
 type ProductRepository interface {
-	// GetAll gets all products from Shopify
-	GetAll() (Products, error)
+	// List gets all of the products
+	List(query ProductQuery) (Products, error)
 }
