@@ -2,6 +2,9 @@ package shopify
 
 import "time"
 
+// Products is a collection of products
+type Products []Product
+
 // Product is an item that can be bought by a customer.
 type Product struct {
 	// ID is the identifier of the product.
@@ -35,4 +38,19 @@ type Product struct {
 	Variants Variants
 	// Vendor is the name of the products vendor
 	Vendor string
+}
+
+// ProductQuery are properties that can be used to filter the returned products
+// See https://shopify.dev/docs/admin-api/rest/reference/products/product#index-2021-04
+type ProductQuery struct {
+	/*
+		Return only products specified by a list of product IDs.
+	*/
+	IDs []int64
+}
+
+// ProductRepository maintains the products of a shop.
+type ProductRepository interface {
+	// List gets all of the products
+	List(query ProductQuery) (Products, error)
 }
