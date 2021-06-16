@@ -2,6 +2,9 @@ package shopify
 
 import "time"
 
+// Products is a collection of products
+type Products []Product
+
 // Product is an item that can be bought by a customer.
 type Product struct {
 	// ID is the identifier of the product.
@@ -35,4 +38,10 @@ type Product struct {
 	Variants Variants
 	// Vendor is the name of the products vendor
 	Vendor string
+}
+
+// ProductRepository maintains the products of a shop.
+type ProductRepository interface {
+	// GetAll gets all products from Shopify
+	GetAll() (Products, error)
 }
