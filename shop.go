@@ -16,4 +16,6 @@ type Shop interface {
 	Variants() VariantRepository
 	// Products are the items that are sold by the shop.
 	Products() ProductRepository
+	// InventoryLevels are the amount of stock available for each product
+	InventoryLevels() InventoryLevelRepository
 }
