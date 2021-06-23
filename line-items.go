@@ -15,4 +15,10 @@ type LineItem struct {
 	SKU string
 	// Quantity is the number of items that were purchased.
 	Quantity int
+	// Price is the cost of the item before any discounts or tax are applied, in the store's currency
+	Price Money
+	// Discount is the amount of money discounted from the price, in the store's currency
+	Discount Money
+	// Taxes is all the taxes applied to the item
+	Taxes []Tax
 }
