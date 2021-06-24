@@ -8,4 +8,8 @@ type ShippingLine struct {
 	Code string
 	// Title is the title of the shipping method
 	Title string
+	// Price is the cost of the shipping method, in the store's currency
+	Price Money
+	// Discount is the amount the shipping method is discounted by, in the store's currency
+	Discount Money
 }
