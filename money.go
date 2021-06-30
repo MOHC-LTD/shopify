@@ -8,7 +8,7 @@ type PriceSet struct {
 	PresentmentMoney Money
 }
 
-// Money is an amount of money in some currency
+// Money is an amount of money in a currency
 type Money struct {
 	// Amount is the amount of money without the currency unit e.g. "5.00"
 	Amount string
