@@ -11,7 +11,7 @@ type LineItem struct {
 	Price string
 	// PriceSet is the price of the line item in shop and presentment currencies.
 	PriceSet PriceSet
-	// ProductID is the ID of the product that the line item belongs to. Can be null if the original product associated with the order is deleted at a later date.
+	// ProductID is the ID of the product that the line item belongs to. Can be 0 if the original product associated with the order is deleted at a later date.
 	ProductID int64
 	// Quantity is the number of items that were purchased.
 	Quantity int
