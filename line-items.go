@@ -31,4 +31,8 @@ type LineItem struct {
 	TotalDiscount string
 	// TotalDiscountSet is the total amount allocated to the line item in the presentment currency.
 	TotalDiscountSet PriceSet
+	// The total line price after discounts are applied in shop and presentment currencies.
+	DiscountedTotalSet PriceSet
+	// Total price (without discounts) of the line item, based on the original unit price of the variant x quantity in shop and presentment currencies.
+	OriginalTotalSet PriceSet
 }
