@@ -55,7 +55,7 @@ type Collection struct {
 }
 
 // CollectionQuery are properties that can be used to filter the returned collections
-// See https://shopify.dev/docs/admin-api/rest/reference/products/product#index-2021-04
+// See https://shopify.dev/api/admin/rest/reference/products/collection
 type CollectionQuery struct {
 	/*
 		Return only products specified by a list of collection IDs.
@@ -63,7 +63,7 @@ type CollectionQuery struct {
 	IDs []int64
 }
 
-// ProductRepository maintains the products of a shop.
+// CollectionRepository maintains the collections of a shop.
 type CollectionRepository interface {
 	// List gets all of the Collections
 	List(query ProductQuery) (Collections, error)
