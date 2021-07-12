@@ -41,8 +41,10 @@ type Collection struct {
 	*/
 	SortOrder string
 	// TemplateSuffix is The suffix of the liquid template being used.
-	/* For example, if the value is custom, then the collection is using the collection.custom.liquid template.
-	If the value is null, then the collection is using the default collection.liquid. */
+	/*
+		For example, if the value is custom, then the collection is using the collection.custom.liquid template.
+		If the value is null, then the collection is using the default collection.liquid.
+	*/
 	TemplateSuffix string
 	//UpdatedAt is the date and time (ISO 8601 format) when the collection was last modified.
 	UpdatedAt time.Time
