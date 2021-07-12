@@ -16,17 +16,6 @@ type Collection struct {
 	// Handle is a unique, human-readable string for the collection automatically generated from its title.
 	/* This is used in themes by the Liquid templating language to refer to the collection. (limit: 255 characters) */
 	Handle string
-	// Image is the image assoicated with collection
-	/*
-		Valid values are:
-		- attachment: An image attached to a collection returned as Base64-encoded binary data.
-		- src: The source URL that specifies the location of the image.
-		- alt: The alternative text that describes the collection image.
-		- created_at: The time and date (ISO 8601 format) when the image was added to the collection.
-		- width: The width of the image in pixels.
-		- height: The height of the image in pixels.
-	*/
-	Image ProductImages
 	// PublishedAt is the time and date (ISO 8601 format) when the collection was made visible. Returns null for a hidden collection.
 	PublishedAt time.Time
 	// PublishedScope is whether the collection is published to the Point of Sale channel.
