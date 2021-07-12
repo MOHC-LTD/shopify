@@ -19,5 +19,5 @@ type Shop interface {
 	// InventoryLevels are the amount of stock available for each product
 	InventoryLevels() InventoryLevelRepository
 	// ProductImages are the product images of the shop
-	ProductImages() ImageRepository
+	ProductImages() ProductImageRepository
 }
