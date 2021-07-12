@@ -26,7 +26,7 @@ type Collection struct {
 		- width: The width of the image in pixels.
 		- height: The height of the image in pixels.
 	*/
-	Image Image
+	Image ProductImages
 	// PublishedAt is the time and date (ISO 8601 format) when the collection was made visible. Returns null for a hidden collection.
 	PublishedAt time.Time
 	// PublishedScope is whether the collection is published to the Point of Sale channel.
