@@ -40,7 +40,7 @@ type ProductImage struct {
 // See https://shopify.dev/api/admin/rest/reference/products/product-image
 type ProductImageQuery struct {
 	/*
-		Return only products images .
+		Return products images.
 	*/
 	SinceIDs []int64
 }
