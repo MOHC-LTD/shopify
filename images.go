@@ -9,7 +9,7 @@ type Images []Image
 type Image struct {
 	// CreatedAt is the date and time when the product image was created.
 	CreatedAt time.Time
-	//  SRC is the source URL that specifies the location of the image.
+	// SRC is the source URL that specifies the location of the image.
 	SRC string
 	// Width is the width of the image in pixels.
 	Width int
