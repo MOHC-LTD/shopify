@@ -2,10 +2,10 @@ package shopify
 
 import "time"
 
-// Images is a collection of Images
+// ProductImages is a collection of Images
 type ProductImages []ProductImage
 
-// Image is an image of a the product
+// ProductImage is an image of a the product
 type ProductImage struct {
 	// ID is a unique numeric identifier for the product image.
 	ID int64
