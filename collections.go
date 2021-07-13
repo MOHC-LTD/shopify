@@ -40,7 +40,7 @@ type Collection struct {
 		- price-desc: By price, in descending order (highest - lowest).
 	*/
 	SortOrder string
-	// TemplateSuffix is The suffix of the liquid template being used.
+	// TemplateSuffix is the suffix of the liquid template being used.
 	/*
 		For example, if the value is custom, then the collection is using the collection.custom.liquid template.
 		If the value is null, then the collection is using the default collection.liquid.
