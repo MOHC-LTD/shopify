@@ -16,13 +16,8 @@ type Collection struct {
 	// Handle is a unique, human-readable string for the collection automatically generated from its title.
 	/* This is used in themes by the Liquid templating language to refer to the collection. (limit: 255 characters) */
 	Handle string
-<<<<<<< HEAD
-	// Image is the image assoicated with collection
-	Image Images
-=======
 	//Image is associated with the collection
 	Image Image
->>>>>>> feat/collections
 	// PublishedAt is the time and date (ISO 8601 format) when the collection was made visible. Returns null for a hidden collection.
 	PublishedAt time.Time
 	// PublishedScope is whether the collection is published to the Point of Sale channel.
