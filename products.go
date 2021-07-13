@@ -38,6 +38,8 @@ type Product struct {
 	Variants Variants
 	// Vendor is the name of the products vendor
 	Vendor string
+	// Images is a list of products images each one assoicated with the product
+	Images ProductImages
 }
 
 // ProductQuery are properties that can be used to filter the returned products
