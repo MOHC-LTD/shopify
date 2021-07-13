@@ -50,17 +50,8 @@ type Collection struct {
 	UpdatedAt time.Time
 }
 
-// CollectionQuery are properties that can be used to filter the returned collections
-// See https://shopify.dev/api/admin/rest/reference/products/collection
-type CollectionQuery struct {
-	/*
-		Return only collection with particular fields.
-	*/
-	fields []string
-}
-
 // CollectionRepository maintains the collections of a shop.
 type CollectionRepository interface {
 	// List gets all of the Collections
-	List(query CollectionQuery) (Collections, error)
+	List() (Collections, error)
 }
