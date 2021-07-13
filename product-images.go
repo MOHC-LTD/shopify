@@ -35,6 +35,6 @@ type ProductImageQuery struct {
 
 // ProductImageRepository maintains the Images of a shop.
 type ProductImageRepository interface {
-	// List gets all of the product images.
-	List(query ProductImageQuery) (ProductImages, error)
+	// List gets all of the product images by product id.
+	List(id int64, query ProductImageQuery) (ProductImages, error)
 }
