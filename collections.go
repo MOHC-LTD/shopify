@@ -16,7 +16,7 @@ type Collection struct {
 	// Handle is a unique, human-readable string for the collection automatically generated from its title.
 	/* This is used in themes by the Liquid templating language to refer to the collection. (limit: 255 characters) */
 	Handle string
-	//Image is associated with the collection
+	//Image is the image associated with the collection.
 	Image Image
 	// PublishedAt is the time and date (ISO 8601 format) when the collection was made visible. Returns null for a hidden collection.
 	PublishedAt time.Time
@@ -54,13 +54,13 @@ type Collection struct {
 // See https://shopify.dev/api/admin/rest/reference/products/collection
 type CollectionQuery struct {
 	/*
-		Return only products specified by a list of collection IDs.
+		Return only collection with particular fields.
 	*/
-	IDs []int64
+	fields []string
 }
 
 // CollectionRepository maintains the collections of a shop.
 type CollectionRepository interface {
 	// List gets all of the Collections
-	List(query ProductQuery) (Collections, error)
+	List(query CollectionQuery) (Collections, error)
 }

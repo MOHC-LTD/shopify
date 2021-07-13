@@ -1,27 +1,27 @@
 package shopify
 
 const (
-	// SortOrderAlphaAsc - Alphabetically, in ascending order (A - Z).
-	SortOrderAlphaAsc = "alpha-asc"
-	// SortOrderAlphaDesc - Alphabetically, in descending order (Z - A).
-	SortOrderAlphaDesc = "alpha-desc"
-	// SortOrderBestSelling - By best-selling products.
-	SortOrderBestSelling = "best-selling"
-	// SortOrderCreated - By date created, in ascending order (oldest - newest).
-	SortOrderCreated = "created"
-	// SortOrderCreatedDesc - By date created, in descending order (newest - oldest).
-	SortOrderCreatedDesc = "created-desc"
-	// SortOrderManual - In the order set manually by the shop owner.
-	SortOrderManual = "manual"
-	// SortOrderPriceAsc - By price, in ascending order (lowest - highest).
-	SortOrderPriceAsc = "price-asc"
-	// SortOrderPriceDesc - By price, in descending order (highest - lowest).
-	SortOrderPriceDesc = "price-desc"
+	// CollectionSortOrderAlphaAsc - Alphabetically, in ascending order (A - Z).
+	CollectionSortOrderAlphaAsc = "alpha-asc"
+	// CollectionSortOrderAlphaDesc - Alphabetically, in descending order (Z - A).
+	CollectionSortOrderAlphaDesc = "alpha-desc"
+	// CollectionSortOrderBestSelling - By best-selling products.
+	CollectionSortOrderBestSelling = "best-selling"
+	// CollectionSortOrderCreated - By date created, in ascending order (oldest - newest).
+	CollectionSortOrderCreated = "created"
+	// CollectionSortOrderCreatedDesc - By date created, in descending order (newest - oldest).
+	CollectionSortOrderCreatedDesc = "created-desc"
+	// CollectionSortOrderManual - In the order set manually by the shop owner.
+	CollectionSortOrderManual = "manual"
+	// CollectionSortOrderPriceAsc - By price, in ascending order (lowest - highest).
+	CollectionSortOrderPriceAsc = "price-asc"
+	// CollectionSortOrderPriceDesc - By price, in descending order (highest - lowest).
+	CollectionSortOrderPriceDesc = "price-desc"
 )
 
 const (
-	// PublishedAtWeb - The collection is published to the Online Store channel but not published to the Point of Sale channel.
-	PublishedAtWeb = "web"
-	// PublishedAtGlobal - The collection is published to both the Online Store channel and the Point of Sale channel.
-	PublishedAtGlobal = "global"
+	// CollectionPublishedAtWeb - The collection is published to the Online Store channel but not published to the Point of Sale channel.
+	CollectionPublishedAtWeb = "web"
+	// CollectionPublishedAtGlobal - The collection is published to both the Online Store channel and the Point of Sale channel.
+	CollectionPublishedAtGlobal = "global"
 )
