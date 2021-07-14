@@ -52,6 +52,8 @@ type Collection struct {
 
 // CollectionRepository maintains the collections of a shop.
 type CollectionRepository interface {
-	// List gets all of the Collections
-	List() (Collections, error)
+	// Get retrieves a single collection
+	Get(ID int64) (Collection, error)
+	// Products Get a list product that belonging to a collection
+	Products(ID int64) (Products, error)
 }
