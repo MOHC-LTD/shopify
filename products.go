@@ -53,4 +53,6 @@ type ProductQuery struct {
 type ProductRepository interface {
 	// List gets all of the products
 	List(query ProductQuery) (Products, error)
+	// Get retrieves a single product
+	Get(id int64) (Product, error)
 }
