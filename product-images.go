@@ -2,15 +2,14 @@ package shopify
 
 import "time"
 
-// ProductImages is a collection of Images
+// ProductImages is a collection of product images
 type ProductImages []ProductImage
 
 // ProductImage is an image of a the product
 type ProductImage struct {
+	Image
 	// ID is a unique numeric identifier for the product image.
 	ID int64
-	// Image contains the basic image content
-	Image
 	// Position is used to order the product image in the list.
 	/*
 	   The first product image is at position 1 and is the "main" image for the product.
@@ -24,7 +23,7 @@ type ProductImage struct {
 	UpdatedAt time.Time
 }
 
-// ProductImageQuery are properties that can be used to filter the returned Images
+// ProductImageQuery are properties that can be used to filter the returned product images
 // See https://shopify.dev/api/admin/rest/reference/products/product-image
 type ProductImageQuery struct {
 	/*
@@ -33,8 +32,8 @@ type ProductImageQuery struct {
 	SinceID int64
 }
 
-// ProductImageRepository maintains the Images of a shop.
+// ProductImageRepository maintains the prodcuct images for products in the shop.
 type ProductImageRepository interface {
 	// List gets all of the product images by product id.
-	List(id int64, query ProductImageQuery) (ProductImages, error)
+	List(productID int64, query ProductImageQuery) (ProductImages, error)
 }
