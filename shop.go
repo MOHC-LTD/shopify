@@ -18,4 +18,8 @@ type Shop interface {
 	Products() ProductRepository
 	// InventoryLevels are the amount of stock available for each product
 	InventoryLevels() InventoryLevelRepository
+	// Collections are groups of products that are sold by the shop
+	Collections() CollectionRepository
+	// ProductImages are the images associated with products
+	ProductImages() ProductImageRepository
 }
