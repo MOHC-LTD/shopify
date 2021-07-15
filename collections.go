@@ -16,9 +16,9 @@ type Collection struct {
 	// Handle is a unique, human-readable string for the collection automatically generated from its title.
 	/* This is used in themes by the Liquid templating language to refer to the collection. (limit: 255 characters) */
 	Handle string
-	//Image is the image associated with the collection.
+	// Image is the image associated with the collection.
 	Image Image
-	// PublishedAt is the time and date (ISO 8601 format) when the collection was made visible. Returns null for a hidden collection.
+	// PublishedAt is the time and date when the collection was made visible. Returns 0 for a hidden collection.
 	PublishedAt time.Time
 	// PublishedScope is whether the collection is published to the Point of Sale channel.
 	/*
@@ -46,14 +46,14 @@ type Collection struct {
 		If the value is null, then the collection is using the default collection.liquid.
 	*/
 	TemplateSuffix string
-	//UpdatedAt is the date and time (ISO 8601 format) when the collection was last modified.
+	//UpdatedAt is the date and time when the collection was last modified.
 	UpdatedAt time.Time
 }
 
 // CollectionRepository maintains the collections of a shop.
 type CollectionRepository interface {
 	// Get retrieves a single collection
-	Get(ID int64) (Collection, error)
-	// Products Get a list product that belonging to a collection
-	Products(ID int64) (Products, error)
+	Get(id int64) (Collection, error)
+	// Products retrieves a list product that belonging to a collection
+	Products(id int64) (Products, error)
 }
