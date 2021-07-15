@@ -32,7 +32,7 @@ type ProductImageQuery struct {
 	SinceID int64
 }
 
-// ProductImageRepository maintains the prodcuct images for products in the shop.
+// ProductImageRepository maintains the product images for products in the shop.
 type ProductImageRepository interface {
 	// List gets all of the product images by product id.
 	List(productID int64, query ProductImageQuery) (ProductImages, error)
