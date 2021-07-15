@@ -5,7 +5,7 @@ import "time"
 // ProductImages is a collection of product images
 type ProductImages []ProductImage
 
-// ProductImage is an image of a the product
+// ProductImage is an image of the product
 type ProductImage struct {
 	Image
 	// ID is a unique numeric identifier for the product image.
