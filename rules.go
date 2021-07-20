@@ -1,6 +1,6 @@
 package shopify
 
-// Rules contains a list of rules
+// Rules is a list of rules
 type Rules []Rule
 
 // Rule define what products go into the smart collection.
