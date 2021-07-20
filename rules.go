@@ -19,7 +19,7 @@ type Rule struct {
 	   Valid values for an equals relation:
 	   	- tag: A tag associated with the product.
 	*/
-	Columnn string
+	Column string
 	// Relation is the relationship between the column choice, and the condition.
 	/*
 		Valid values for number relations:
