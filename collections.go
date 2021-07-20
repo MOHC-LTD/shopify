@@ -39,6 +39,8 @@ type Collection struct {
 		- price-asc: By price, in ascending order (lowest - highest).
 		- price-desc: By price, in descending order (highest - lowest).
 	*/
+	// Rules is The list of rules that define what products go into the smart collection. Each rule has the following properties:
+	Rules     Rules
 	SortOrder string
 	// TemplateSuffix is the suffix of the liquid template being used.
 	/*
