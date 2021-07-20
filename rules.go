@@ -19,7 +19,7 @@ type Rule struct {
 	   Valid values for an equals relation:
 	   	- tag: A tag associated with the product.
 	*/
-	Columnn string `json:"column"`
+	Columnn string
 	// Relation is the relationship between the column choice, and the condition.
 	/*Valid values for number relations:
 	  	- greater_than The column value is greater than the condition.
@@ -34,7 +34,7 @@ type Rule struct {
 	  	- contains: Checks if the column value contains the condition value.
 	  	- not_contains: Checks if the column value does not contain the condition value.
 	*/
-	Relation string `json:"relation"`
+	Relation string
 	// Condition is the select products for a smart collection using a condition. Values are either strings or numbers, depending on the relation value.
-	Condition string `json:"condition"`
+	Condition string
 }
