@@ -19,6 +19,6 @@ const (
 	RuleRelationTextEndWith = "ends_with"
 	// RuleRelationTextContains is the text relation that checks if the column value contains the condition value.
 	RuleRelationTextContains = "contains"
-	// RuleRelationTextNotcontainsis the text relation that checks if the column value does not contain the condition value.
+	// RuleRelationTextNotContains is the text relation that checks if the column value does not contain the condition value.
 	RuleRelationTextNotcontains = "not_contains"
 )
