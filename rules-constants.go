@@ -41,5 +41,5 @@ const (
 	// RuleRelationTextContains is the text relation that checks if the column value contains the condition value.
 	RuleRelationTextContains = "contains"
 	// RuleRelationTextNotContains is the text relation that checks if the column value does not contain the condition value.
-	RuleRelationTextNotcontains = "not_contains"
+	RuleRelationTextNotContains = "not_contains"
 )
