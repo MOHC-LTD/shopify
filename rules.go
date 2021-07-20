@@ -21,18 +21,19 @@ type Rule struct {
 	*/
 	Columnn string
 	// Relation is the relationship between the column choice, and the condition.
-	/*Valid values for number relations:
-	  	- greater_than The column value is greater than the condition.
-	  	- less_than The column value is less than the condition.
-	  	- equals The column value is equal to the condition.
-	  	- not_equals The column value is not equal to the condition.
-	  Valid values for text relations:
-	  	- equals: Checks if the column value is equal to the condition value.
-	  	- not_equals: Checks if the column value is not equal to the condition value.
-	  	- starts_with: Checks if the column value starts with the condition value.
-	  	- ends_with: Checks if the column value ends with the condition value.
-	  	- contains: Checks if the column value contains the condition value.
-	  	- not_contains: Checks if the column value does not contain the condition value.
+	/*
+		Valid values for number relations:
+		- greater_than: The column value is greater than the condition.
+		- less_than: The column value is less than the condition.
+		- equals: The column value is equal to the condition.
+		- not_equals: The column value is not equal to the condition.
+		Valid values for text relations:
+		- equals: Checks if the column value is equal to the condition value.
+		- not_equals: Checks if the column value is not equal to the condition value.
+		- starts_with: Checks if the column value starts with the condition value.
+		- ends_with: Checks if the column value ends with the condition value.
+		- contains: Checks if the column value contains the condition value.
+		- not_contains: Checks if the column value does not contain the condition value.
 	*/
 	Relation string
 	// Condition is the select products for a smart collection using a condition. Values are either strings or numbers, depending on the relation value.
