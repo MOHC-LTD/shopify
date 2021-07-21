@@ -48,10 +48,10 @@ type Collection struct {
 		If the value is null, then the collection is using the default collection.liquid.
 	*/
 	TemplateSuffix string
-	// UpdatedAt is the date and time when the collection was last modified.
-	UpdatedAt time.Time
 	// ProductCount is the number of products that are in the collection
 	ProductCount int
+	// UpdatedAt is the date and time when the collection was last modified.
+	UpdatedAt time.Time
 }
 
 // CollectionRepository maintains the collections of a shop.
