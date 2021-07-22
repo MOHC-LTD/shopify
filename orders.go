@@ -156,5 +156,5 @@ type OrderRepository interface {
 	// Close closes an order
 	Close(id int64) error
 	// Create creates a new order
-	Create(order Order) error
+	Create(order Order) (Order, error)
 }
