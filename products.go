@@ -57,4 +57,6 @@ type ProductRepository interface {
 	List(query ProductQuery) (Products, error)
 	// Get retrieves a single product
 	Get(id int64) (Product, error)
+	// Create creates a single product
+	Create(product Product) (Product, error)
 }
