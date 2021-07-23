@@ -12,10 +12,12 @@ type Collection interface {
 	// Handle is a unique, human-readable string for the collection automatically generated from its title.
 	/* This is used in themes by the Liquid templating language to refer to the collection. (limit: 255 characters) */
 	Handle() string
-	// ID is the ID for the collection.
-	ID() int64
 	// Image is the image associated with the collection.
 	Image() Image
+	// ID is the ID for the collection.
+	ID() int64
+	// ProductCount is the number of products that are in the collection
+	ProductCount() int
 	// PublishedAt is the time and date when the collection was made visible. Returns 0 for a hidden collection.
 	PublishedAt() time.Time
 	// PublishedScope is whether the collection is published to the Point of Sale channel.
@@ -46,8 +48,6 @@ type Collection interface {
 	TemplateSuffix() string
 	// Title is the name of the collection. (limit: 255 characters)
 	Title() string
-	// ProductCount is the number of products that are in the collection
-	ProductCount() int
 	// UpdatedAt is the date and time when the collection was last modified.
 	UpdatedAt() time.Time
 }

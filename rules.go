@@ -37,8 +37,5 @@ type Rule struct {
 	*/
 	Relation string
 	// Condition is the select products for a smart collection using a condition.
-	/*
-		Values are either strings or numbers, depending on the relation value.
-	*/
 	Condition string
 }
