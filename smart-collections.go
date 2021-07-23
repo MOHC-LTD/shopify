@@ -2,7 +2,11 @@ package shopify
 
 import "time"
 
-type SmartCollections struct {
+// SmartCollections is a list of SmartCollections.
+type SmartCollections []SmartCollection
+
+// Smartcollection is a grouping of products defined by rules that are set by the merchant.
+type SmartCollection struct {
 	// BodyHTML is the description of the smart collection. Includes HTML markup. Many shop themes display this on the smart collection page.
 	BodyHTML string
 	// Handle is a human-friendly unique string for the smart collection. Automatically generated from the title. Used in shop themes by the Liquid templating language to refer to the smart collection. (maximum: 255 characters) */
@@ -59,5 +63,5 @@ type SmartCollections struct {
 // SmartCollectionRepository maintains the collections of a shop.
 type SmartCollectionRepository interface {
 	// Get retrieves a single smart collection
-	Get(id int64) (SmartCollections, error)
+	Get(id int64) (SmartCollection, error)
 }

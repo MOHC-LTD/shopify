@@ -2,6 +2,10 @@ package shopify
 
 import "time"
 
+// CustomCollections is a list of CustomCollections.
+type CustomCollections []CustomCollection
+
+// CustomCollection is a grouping of products that a merchant can create to make their store easier to browse.
 type CustomCollection struct {
 	// BodyHTML is the description of the custom collection. Includes HTML markup. Many shop themes display this on the custom collection page.
 	BodyHTML string
@@ -59,5 +63,5 @@ type CustomCollection struct {
 // CustomCollectionRepository maintains the collections of a shop.
 type CustomCollectionRepository interface {
 	// Get retrieves a single custom collection
-	Get(id int64) (Collection, error)
+	Get(id int64) (CustomCollection, error)
 }
