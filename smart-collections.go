@@ -8,6 +8,7 @@ type SmartCollections []SmartCollection
 // SmartCollection is a grouping of products defined by rules that are set by the merchant.
 type SmartCollection struct {
 	bodyHTML       string
+	collectionType string
 	handle         string
 	id             int64
 	image          Image
@@ -107,6 +108,7 @@ func (smartCollection SmartCollection) UpdatedAt() time.Time {
 // NewSmartCollection create new SmartColllection
 func NewSmartCollection(
 	bodyHTML string,
+	collectionType string,
 	handle string,
 	id int64,
 	image Image,
@@ -135,4 +137,14 @@ func NewSmartCollection(
 		title:          title,
 		updatedAt:      updatedAt,
 	}
+}
+
+// IsSmartCollection checks if collection is smart collection
+func (smartCollection SmartCollection) IsSmartCollection() bool {
+	return true
+}
+
+// IsCustomCollection checks if collection is custom collection
+func (smartCollection SmartCollection) IsCustomCollection() bool {
+	return false
 }

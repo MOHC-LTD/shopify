@@ -9,6 +9,8 @@ type Collections []Collection
 type Collection interface {
 	// BodyHTML is a description of the collection, complete with HTML markup. Many templates display this on their collection pages.
 	BodyHTML() string
+	// CollectionType is the type of collection
+	CollectionType() string
 	// Handle is a unique, human-readable string for the collection automatically generated from its title.
 	/* This is used in themes by the Liquid templating language to refer to the collection. (limit: 255 characters) */
 	Handle() string

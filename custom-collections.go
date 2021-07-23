@@ -8,6 +8,7 @@ type CustomCollections []CustomCollection
 // CustomCollection is a grouping of products that a merchant can create to make their store easier to browse.
 type CustomCollection struct {
 	bodyHTML       string
+	collectionType string
 	handle         string
 	id             int64
 	image          Image
@@ -98,6 +99,7 @@ func (customCollection CustomCollection) UpdatedAt() time.Time {
 // NewCustomCollection create new CustomCollection
 func NewCustomCollection(
 	bodyHTML string,
+	collectionType string,
 	handle string,
 	id int64,
 	image Image,
@@ -113,6 +115,7 @@ func NewCustomCollection(
 ) CustomCollection {
 	return CustomCollection{
 		bodyHTML:       bodyHTML,
+		collectionType: collectionType,
 		handle:         handle,
 		id:             id,
 		image:          image,
@@ -124,4 +127,14 @@ func NewCustomCollection(
 		title:          title,
 		updatedAt:      updatedAt,
 	}
+}
+
+// IsCustomCollection checks if collection is smart collection
+func (customCollection CustomCollection) IsSmartCollection() bool {
+	return false
+}
+
+// IsCustomCollection checks if collection is custom collection
+func (customCollection CustomCollection) IsCustomCollection() bool {
+	return false
 }
