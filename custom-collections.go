@@ -24,15 +24,6 @@ type CustomCollection struct {
 		- global: The collection is published to both the Online Store channel and the Point of Sale channel.
 	*/
 	PublishedScope string
-	// Rules is the list of rules that define what products go into the custom collection.
-	Rules Rules
-	// Disjunctive is whether the product must match all the rules to be included in the custom collection.
-	/*
-		Valid values:
-			- true: Products only need to match one or more of the rules to be included in the custom collection.
-			- false: Products must match all of the rules to be included in the custom collection.
-	*/
-	Disjunctive bool
 	// SortOrder is the order in which products in the collection appear.
 	/*
 		Valid values:
