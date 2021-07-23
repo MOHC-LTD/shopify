@@ -125,9 +125,3 @@ func NewCustomCollection(
 		updatedAt:      updatedAt,
 	}
 }
-
-// CustomCollectionRepository maintains the collections of a shop.
-type CustomCollectionRepository interface {
-	// Get retrieves a single custom collection
-	Get(id int64) (CustomCollection, error)
-}

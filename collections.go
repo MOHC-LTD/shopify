@@ -12,10 +12,10 @@ type Collection interface {
 	// Handle is a unique, human-readable string for the collection automatically generated from its title.
 	/* This is used in themes by the Liquid templating language to refer to the collection. (limit: 255 characters) */
 	Handle() string
-	// Image is the image associated with the collection.
-	Image() Image
 	// ID is the ID for the collection.
 	ID() int64
+	// Image is the image associated with the collection.
+	Image() Image
 	// ProductCount is the number of products that are in the collection
 	ProductCount() int
 	// PublishedAt is the time and date when the collection was made visible. Returns 0 for a hidden collection.

@@ -136,9 +136,3 @@ func NewSmartCollection(
 		updatedAt:      updatedAt,
 	}
 }
-
-// SmartCollectionRepository maintains the collections of a shop.
-type SmartCollectionRepository interface {
-	// Get retrieves a single smart collection
-	Get(id int64) (SmartCollection, error)
-}
