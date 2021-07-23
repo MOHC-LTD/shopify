@@ -5,7 +5,7 @@ import "time"
 // SmartCollections is a list of SmartCollections.
 type SmartCollections []SmartCollection
 
-// Smartcollection is a grouping of products defined by rules that are set by the merchant.
+// SmartCollection is a grouping of products defined by rules that are set by the merchant.
 type SmartCollection struct {
 	// BodyHTML is the description of the smart collection. Includes HTML markup. Many shop themes display this on the smart collection page.
 	BodyHTML string
