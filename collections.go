@@ -6,27 +6,27 @@ import "time"
 type Collections []Collection
 
 // Collection is a grouping of products.
-type Collection struct {
-	// ID is the ID for the collection.
-	ID int64
-	// Title is the name of the collection. (limit: 255 characters)
-	Title string
+type Collection interface {
 	// BodyHTML is a description of the collection, complete with HTML markup. Many templates display this on their collection pages.
-	BodyHTML string
+	BodyHTML() string
 	// Handle is a unique, human-readable string for the collection automatically generated from its title.
 	/* This is used in themes by the Liquid templating language to refer to the collection. (limit: 255 characters) */
-	Handle string
+	Handle() string
+	// ID is the ID for the collection.
+	ID() int64
 	// Image is the image associated with the collection.
-	Image Image
+	Image() Image
+	// ProductCount is the number of products that are in the collection
+	ProductCount() int
 	// PublishedAt is the time and date when the collection was made visible. Returns 0 for a hidden collection.
-	PublishedAt time.Time
+	PublishedAt() time.Time
 	// PublishedScope is whether the collection is published to the Point of Sale channel.
 	/*
 		Valid Values:
 		- web: The collection is published to the Online Store channel but not published to the Point of Sale channel.
 		- global: The collection is published to both the Online Store channel and the Point of Sale channel.
 	*/
-	PublishedScope string
+	PublishedScope() string
 	// SortOrder is the order in which products in the collection appear.
 	/*
 		valid Values:
@@ -39,15 +39,17 @@ type Collection struct {
 		- price-asc: By price, in ascending order (lowest - highest).
 		- price-desc: By price, in descending order (highest - lowest).
 	*/
-	SortOrder string
+	SortOrder() string
 	// TemplateSuffix is the suffix of the liquid template being used.
 	/*
 		For example, if the value is custom, then the collection is using the collection.custom.liquid template.
 		If the value is null, then the collection is using the default collection.liquid.
 	*/
-	TemplateSuffix string
-	//UpdatedAt is the date and time when the collection was last modified.
-	UpdatedAt time.Time
+	TemplateSuffix() string
+	// Title is the name of the collection. (limit: 255 characters)
+	Title() string
+	// UpdatedAt is the date and time when the collection was last modified.
+	UpdatedAt() time.Time
 }
 
 // CollectionRepository maintains the collections of a shop.
