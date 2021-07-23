@@ -17,8 +17,6 @@ type Variant struct {
 	InventoryItemID int64
 	// Price is the price of the product variant.
 	Price string
-	// ProductID is the unique numeric identifier for the product.
-	ProductID int64
 	// Barcode is the barcode, UPC, or ISBN number for the product.
 	Barcode string
 	// CreatedAt is the date and time when the product variant was created.
