@@ -38,6 +38,8 @@ type Product struct {
 	Variants Variants
 	// Vendor is the name of the products vendor
 	Vendor string
+	// Images are the images of the product
+	Images ProductImages
 }
 
 // ProductQuery are properties that can be used to filter the returned products
@@ -55,4 +57,6 @@ type ProductRepository interface {
 	List(query ProductQuery) (Products, error)
 	// Get retrieves a single product
 	Get(id int64) (Product, error)
+	// Create creates a single product
+	Create(product Product) (Product, error)
 }
