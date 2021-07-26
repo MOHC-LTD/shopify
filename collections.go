@@ -18,8 +18,8 @@ type Collection interface {
 	ID() int64
 	// Image is the image associated with the collection.
 	Image() Image
-	// ProductCount is the number of products that are in the collection
-	ProductCount() int
+	// ProductsCount is the number of products that are in the collection
+	ProductsCount() int
 	// PublishedAt is the time and date when the collection was made visible. Returns 0 for a hidden collection.
 	PublishedAt() time.Time
 	// PublishedScope is whether the collection is published to the Point of Sale channel.

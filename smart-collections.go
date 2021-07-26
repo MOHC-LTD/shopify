@@ -12,7 +12,7 @@ type SmartCollection struct {
 	handle         string
 	id             int64
 	image          Image
-	productCount   int
+	productsCount  int
 	publishedAt    time.Time
 	publishedScope string
 	// Rules is the list of rules that define what products go into the smart collection.
@@ -35,6 +35,11 @@ func (smartCollection SmartCollection) BodyHTML() string {
 	return smartCollection.bodyHTML
 }
 
+// CollectionType is the type of smart collection
+func (smartCollection SmartCollection) CollectionType() string {
+	return smartCollection.collectionType
+}
+
 // Handle is a human-friendly unique string for the smart collection. Automatically generated from the title. Used in shop themes by the Liquid templating language to refer to the smart collection. (maximum: 255 characters) */
 func (smartCollection SmartCollection) Handle() string {
 	return smartCollection.handle
@@ -50,9 +55,9 @@ func (smartCollection SmartCollection) Image() Image {
 	return smartCollection.image
 }
 
-// ProductCount is the number of products that are in the collection
-func (smartCollection SmartCollection) ProductCount() int {
-	return smartCollection.productCount
+// ProductsCount is the number of products that are in the collection
+func (smartCollection SmartCollection) ProductsCount() int {
+	return smartCollection.productsCount
 }
 
 // PublishedAt is the time and date when the smart collection was made visible. Returns 0 for a hidden collection.
@@ -112,7 +117,7 @@ func NewSmartCollection(
 	handle string,
 	id int64,
 	image Image,
-	productCount int,
+	productsCount int,
 	publishedAt time.Time,
 	publishedScope string,
 	rules Rules,
@@ -124,10 +129,11 @@ func NewSmartCollection(
 ) SmartCollection {
 	return SmartCollection{
 		bodyHTML:       bodyHTML,
+		collectionType: collectionType,
 		handle:         handle,
 		id:             id,
 		image:          image,
-		productCount:   productCount,
+		productsCount:  productsCount,
 		publishedAt:    publishedAt,
 		publishedScope: publishedScope,
 		Rules:          rules,

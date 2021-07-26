@@ -12,7 +12,7 @@ type CustomCollection struct {
 	handle         string
 	id             int64
 	image          Image
-	productCount   int
+	productsCount  int
 	publishedAt    time.Time
 	publishedScope string
 	sortOrder      string
@@ -24,6 +24,11 @@ type CustomCollection struct {
 // BodyHTML is the description of the custom collection. Includes HTML markup. Many shop themes display this on the custom collection page.
 func (customCollection CustomCollection) BodyHTML() string {
 	return customCollection.bodyHTML
+}
+
+// CollectionType is the type of custom collection
+func (customCollection CustomCollection) CollectionType() string {
+	return customCollection.collectionType
 }
 
 // Handle is a human-friendly unique string for the custom collection. Automatically generated from the title. Used in shop themes by the Liquid templating language to refer to the custom collection. (maximum: 255 characters) */
@@ -41,9 +46,9 @@ func (customCollection CustomCollection) Image() Image {
 	return customCollection.image
 }
 
-// ProductCount is the number of products that are in the collection
-func (customCollection CustomCollection) ProductCount() int {
-	return customCollection.productCount
+// ProductsCount is the number of products that are in the collection
+func (customCollection CustomCollection) ProductsCount() int {
+	return customCollection.productsCount
 }
 
 // PublishedAt is the time and date when the custom collection was made visible. Returns 0 for a hidden collection.
@@ -103,11 +108,9 @@ func NewCustomCollection(
 	handle string,
 	id int64,
 	image Image,
-	productCount int,
+	productsCount int,
 	publishedAt time.Time,
 	publishedScope string,
-	rules Rules,
-	disjunctive bool,
 	sortOrder string,
 	templateSuffix string,
 	title string,
@@ -119,7 +122,7 @@ func NewCustomCollection(
 		handle:         handle,
 		id:             id,
 		image:          image,
-		productCount:   productCount,
+		productsCount:  productsCount,
 		publishedAt:    publishedAt,
 		publishedScope: publishedScope,
 		sortOrder:      sortOrder,
@@ -129,7 +132,7 @@ func NewCustomCollection(
 	}
 }
 
-// IsCustomCollection checks if collection is smart collection
+// IsSmartCollection checks if collection is smart collection
 func (customCollection CustomCollection) IsSmartCollection() bool {
 	return false
 }
