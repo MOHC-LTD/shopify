@@ -1,6 +1,13 @@
 package shopify
 
 const (
+	// CollectionTypeSmart - specifies if a collection is a smart collection.
+	CollectionTypeSmart = "smart"
+	// CollectionTypeCustom - specifies if a collection is a custom collection.
+	CollectionTypeCustom = "custom"
+)
+
+const (
 	// CollectionSortOrderAlphaAsc - Alphabetically, in ascending order (A - Z).
 	CollectionSortOrderAlphaAsc = "alpha-asc"
 	// CollectionSortOrderAlphaDesc - Alphabetically, in descending order (Z - A).
