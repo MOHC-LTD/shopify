@@ -151,23 +151,6 @@ type OrderQuery struct {
 	IDs []int64
 }
 
-// CancelReason is the reason why an order has been cancelled.
-// Valid values: customer, inventory, fraud, declined, other
-type CancelReason string
-
-const (
-	// CancelReasonCustomer The customer wanted to cancel the order.
-	CancelReasonCustomer = "customer"
-	// CancelReasonInventory There was insufficient inventory.
-	CancelReasonInventory = "inventory"
-	// CancelReasonFraud The order was fraudulent.
-	CancelReasonFraud = "fraud"
-	// CancelReasonDeclined Payment was declined.
-	CancelReasonDeclined = "declined"
-	// CancelReasonOther The order was canceled for an unlisted reason.
-	CancelReasonOther = "other"
-)
-
 // OrderRepository maintains the orders in the shop
 type OrderRepository interface {
 	// List gets all of the orders
@@ -175,7 +158,7 @@ type OrderRepository interface {
 	// Get gets an order
 	Get(id int64) (Order, error)
 	// Cancel cancels an order
-	Cancel(id int64, reason CancelReason, email bool) error
+	Cancel(id int64, email bool) error
 	// Close closes an order
 	Close(id int64) error
 	// Create creates a new order
