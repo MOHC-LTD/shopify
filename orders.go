@@ -158,7 +158,7 @@ type OrderRepository interface {
 	// Get gets an order
 	Get(id int64) (Order, error)
 	// Cancel cancels an order
-	Cancel(id int64, email bool) error
+	Cancel(id int64, emailCustomer bool) error
 	// Close closes an order
 	Close(id int64) error
 	// Create creates a new order
