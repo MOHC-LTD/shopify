@@ -15,6 +15,8 @@ type Variant struct {
 	Title string
 	// InventoryItemID is the unique identifier for the inventory item.
 	InventoryItemID int64
+	// InventoryQuantity is an aggregate of inventory across all locations. To adjust inventory at a specific location, use the InventoryLevel resource. Readonly.
+	InventoryQuantity int
 	// Price is the price of the product variant.
 	Price string
 	// ProductID is the unique numeric identifier for the product.
