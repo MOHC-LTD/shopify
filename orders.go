@@ -82,6 +82,8 @@ type Order struct {
 	SubtotalPrice string
 	// SubtotalPriceSet is the subtotal of the order in shop and presentment currencies after discounts but before shipping, duties, taxes, and tips.
 	SubtotalPriceSet PriceSet
+	// Tags is the tags on the order
+	Tags []string
 	// TotalDiscounts is the total discounts applied to the price of the order in the shop currency.
 	TotalDiscounts string
 	// TotalDiscountsSet is the total discounts applied to the price of the order in shop and presentment currencies.
