@@ -29,7 +29,7 @@ type Product struct {
 	/*
 		A product can have up to 250 tags. Each tag can have up to 255 characters.
 	*/
-	Tags Tags
+	Tags string
 	// Title is the name of the product.
 	Title string
 	// UpdatedAt is the date and time the product was last updated.
