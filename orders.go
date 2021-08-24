@@ -84,7 +84,7 @@ type Order struct {
 	SubtotalPriceSet PriceSet
 	// Tags is the tags on the order
 	Tags []string
-	// Tags attached to the order. Tags are additional short descriptors, commonly used for filtering and searching. Each individual tag is limited to 40 characters in length.
+	// TotalDiscounts is the total discounts applied to the price of the order in the shop currency.
 	TotalDiscounts string
 	// TotalDiscountsSet is the total discounts applied to the price of the order in shop and presentment currencies.
 	TotalDiscountsSet PriceSet
