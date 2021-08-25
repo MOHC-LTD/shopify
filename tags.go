@@ -2,7 +2,7 @@ package shopify
 
 import "strings"
 
-// Tags is a string that contains any number of short descriptors commonly used for filtering and searching, separated by commas.
+// Tags are tags attached to the order, formatted as a string of comma-separated values. Tags are additional short descriptors, commonly used for filtering and searching. Each individual tag is limited to 40 characters in length.
 type Tags string
 
 // NewTags combines a list of tags into a single shopify tag string
