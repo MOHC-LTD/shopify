@@ -7,12 +7,16 @@ type Products []Product
 
 // Product is an item that can be bought by a customer.
 type Product struct {
-	// ID is the identifier of the product.
-	ID int64
-	// CreatedAt is the date and time the product was created.
-	CreatedAt time.Time
 	// BodyHTML is a description of the product. Supports HTML formatting.
 	BodyHTML string
+	// CreatedAt is the date and time the product was created.
+	CreatedAt time.Time
+	// Handle is a unique human-friendly string for the product.
+	Handle string
+	// ID is the identifier of the product.
+	ID int64
+	// Images are the images of the product
+	Images ProductImages
 	// ProductType is a categorization for the product used for filtering and searching products.
 	ProductType string
 	// PublishedAt is the date and time the product was published.
@@ -38,8 +42,6 @@ type Product struct {
 	Variants Variants
 	// Vendor is the name of the products vendor
 	Vendor string
-	// Images are the images of the product
-	Images ProductImages
 }
 
 // ProductQuery are properties that can be used to filter the returned products
