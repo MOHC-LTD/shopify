@@ -22,4 +22,6 @@ type Shop interface {
 	Collections() CollectionRepository
 	// ProductImages are the images associated with products
 	ProductImages() ProductImageRepository
+	// Customers are the customers in the shop
+	Customers() CustomerRepository
 }
