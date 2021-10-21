@@ -21,5 +21,5 @@ type Customer struct {
 // CustomerRepository manages customers
 type CustomerRepository interface {
 	// Orders retrieves a list of orders belonging to a customer
-	Orders(customerID int64) (Orders, error)
+	Orders(customerID int64, query OrderQuery) (Orders, error)
 }
