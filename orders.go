@@ -35,6 +35,8 @@ type Order struct {
 	CurrentTotalTaxSet PriceSet
 	// Customer is information about the customer.
 	Customer Customer
+	// DiscountApplications is an ordered list of discount applications
+	DiscountApplications DiscountApplications
 	// Email is the customer's email address.
 	Email string
 	// FinancialStatus is the status of payments associated with the order. Can only be set when the order is created.

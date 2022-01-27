@@ -31,4 +31,6 @@ type LineItem struct {
 	TotalDiscount string
 	// TotalDiscountSet is the total amount allocated to the line item in the presentment currency.
 	TotalDiscountSet PriceSet
+	// DiscountAllocations is a list of the amounts allocated to the line item by discount applications.
+	DiscountAllocations DiscountAllocations
 }
