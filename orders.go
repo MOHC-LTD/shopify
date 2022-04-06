@@ -113,7 +113,9 @@ type OrderAttributes []OrderAttribute
 
 // OrderAttribute represents a single order attribute
 type OrderAttribute struct {
-	Name  string
+	// Name represents the name of the attribute
+	Name string
+	// Value represents the value of the attribute
 	Value string
 }
 
