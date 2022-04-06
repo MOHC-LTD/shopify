@@ -108,14 +108,14 @@ type Order struct {
 	UpdatedAt time.Time
 }
 
-// OrderAttributes represents a collection of order attributes
+// OrderAttributes represents a collection of order attributes.
 type OrderAttributes []OrderAttribute
 
-// OrderAttribute represents a single order attribute
+// OrderAttribute represents a single order attribute.
 type OrderAttribute struct {
-	// Name represents the name of the attribute
+	// Name represents the name of the attribute.
 	Name string
-	// Value represents the value of the attribute
+	// Value represents the value of the attribute.
 	Value string
 }
 
