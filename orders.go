@@ -9,6 +9,8 @@ type Orders []Order
 
 // Order is a customer's completed request to purchase one or more products from a shop.
 type Order struct {
+	// Attributes represents the custom order attributes for the order, if there are any.
+	Attributes OrderAttributes
 	// BillingAddress is the mailing address associated with the payment method.
 	BillingAddress Address
 	// ClosedAt is the date and time when the order was closed.
@@ -104,6 +106,15 @@ type Order struct {
 	TotalTaxSet PriceSet
 	// UpdatedAt is the date and time when the order was last modified.
 	UpdatedAt time.Time
+}
+
+// OrderAttributes represents a collection of order attributes
+type OrderAttributes []OrderAttribute
+
+// OrderAttribute represents a single order attribute
+type OrderAttribute struct {
+	Name  string
+	Value string
 }
 
 // OrderQuery are properties that can be used to filter the returned orders
