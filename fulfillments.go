@@ -8,8 +8,12 @@ type Fulfillment struct {
 	ID int64
 	// OrderID is the unique numeric identifier for the order.
 	OrderID int64
+	// The name of the tracking company.
+	TrackingCompany string
 	// TrackingNumbers is a list of tracking numbers, provided by the shipping company.
 	TrackingNumbers []string
+	// The URLs of tracking pages for the fulfillment.
+	TrackingURLs []string
 	// Status is the status of the fulfillment.
 	/*
 		Valid values:
