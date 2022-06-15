@@ -1,6 +1,9 @@
 package shopify
 
-import "time"
+import (
+	"context"
+	"time"
+)
 
 // Products is a collection of products
 type Products []Product
@@ -61,4 +64,10 @@ type ProductRepository interface {
 	Get(id int64) (Product, error)
 	// Create creates a single product
 	Create(product Product) (Product, error)
+}
+
+// ProductCreator supplies methods for creating products in the shopify shop
+type ProductCreator interface {
+	// Save saves a single product to the shopify shop and returns the created product
+	Save(context.Context, Product) (Product, error)
 }
