@@ -68,6 +68,6 @@ type ProductRepository interface {
 
 // ProductCreator supplies methods for creating products in the shopify shop
 type ProductCreator interface {
-	// Save saves a single product to the shopify shop
-	Save(context.Context, Product) error
+	// Save saves a single product to the shopify shop and returns the created product
+	Save(context.Context, Product) (Product, error)
 }
