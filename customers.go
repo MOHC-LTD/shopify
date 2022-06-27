@@ -17,3 +17,9 @@ type Customer struct {
 	// UpdatedAt is the date and time (ISO 8601 format) when the customer information was last updated.
 	UpdatedAt time.Time
 }
+
+// CustomerRepository manages customers
+type CustomerRepository interface {
+	// Orders retrieves a list of orders belonging to a customer
+	Orders(customerID int64, query OrderQuery) (Orders, error)
+}
