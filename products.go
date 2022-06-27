@@ -54,6 +54,10 @@ type ProductQuery struct {
 		Return only products specified by a list of product IDs.
 	*/
 	IDs []int64
+	/*
+		Return only products specified by the tags provided
+	*/
+	Tags []string
 }
 
 // ProductRepository maintains the products of a shop.
@@ -64,6 +68,8 @@ type ProductRepository interface {
 	Get(id int64) (Product, error)
 	// Create creates a single product
 	Create(product Product) (Product, error)
+	// Update updates a single product
+	Update(product Product) (Product, error)
 }
 
 // ProductCreator supplies methods for creating products in the shopify shop
