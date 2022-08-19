@@ -5,6 +5,30 @@ import "time"
 // Variants is a collection of variants
 type Variants []Variant
 
+// GetByPosition returns a variant at the found position
+func (v Variants) GetByPosition(position int) (Variant, error) {
+	for _, variant := range v {
+		if variant.Position == position {
+			return variant, nil
+		}
+	}
+
+	return Variant{}, NewErrVariantNotFoundByPosition()
+}
+
+// GetOption1Values returns all the option1 values for each variant if they have one
+func (v Variants) GetOption1Values() []string {
+	option1s := make([]string, 0, len(v))
+
+	for _, variant := range v {
+		if variant.Option1 != "" {
+			option1s = append(option1s, variant.Option1)
+		}
+	}
+
+	return option1s
+}
+
 // Variant is a specific version of a product
 type Variant struct {
 	// ID is the unique numeric identifier for the product variant.
@@ -13,6 +37,14 @@ type Variant struct {
 	SKU string
 	// Title is the title of the product variant.
 	Title string
+	// Option1 is a custom properties that a shop owner uses to define product variants. You can define three options for a product variant.
+	Option1 string
+	// Option2 is a custom properties that a shop owner uses to define product variants. You can define three options for a product variant.
+	Option2 string
+	// Option3 is a custom properties that a shop owner uses to define product variants. You can define three options for a product variant.
+	Option3 string
+	// Position is the order of the product variant in the list of product variants. The first position in the list is 1. The position of variants is indicated by the order in which they are listed.
+	Position int
 	// InventoryItemID is the unique identifier for the inventory item.
 	InventoryItemID int64
 	// InventoryManagement is the fulfillment service that tracks the number of items in stock for the product variant.
