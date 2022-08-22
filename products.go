@@ -45,6 +45,29 @@ type Product struct {
 	Variants Variants
 	// Vendor is the name of the products vendor
 	Vendor string
+	// Options are the options of a product
+	/*
+		The custom product properties. For example, Size, Color, and Material.
+		Each product can have up to 3 options and each option value can be up to 255 characters.
+		Product variants are made of up combinations of option values. Options cannot be created without
+		values. To create new options, a variant with an associated option value also needs to be created.
+	*/
+	Options ProductOptions
+}
+
+// ProductOptions are the options of a product
+type ProductOptions []ProductOption
+
+// ProductOption is the option of a product
+type ProductOption struct {
+	// ID is an unsigned 64-bit integer that's used as a unique identifier for the product option.
+	ID int64
+	// Name is the custom name given to one of the three available product options that can be used.
+	Name string
+	// Position is the order of the product variants in the list.
+	Position int
+	// Values are the possible values that can be selected for the option and coincide with the product variant title, option1, option 2 or option3.
+	Values []string
 }
 
 // ProductQuery are properties that can be used to filter the returned products
@@ -68,6 +91,8 @@ type ProductRepository interface {
 	Get(id int64) (Product, error)
 	// Create creates a single product
 	Create(product Product) (Product, error)
+	// Update updates a single product
+	Update(product Product) (Product, error)
 }
 
 // ProductCreator supplies methods for creating products in the shopify shop
