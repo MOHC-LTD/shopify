@@ -5,7 +5,7 @@ import "time"
 // Variants is a collection of variants
 type Variants []Variant
 
-// GetByPosition returns a variant at the found position
+// GetByPosition returns a variant at the found position or throws an error if not found
 func (v Variants) GetByPosition(position int) (Variant, error) {
 	for _, variant := range v {
 		if variant.Position == position {
@@ -37,11 +37,11 @@ type Variant struct {
 	SKU string
 	// Title is the title of the product variant.
 	Title string
-	// Option1 is a custom properties that a shop owner uses to define product variants. You can define three options for a product variant.
+	// Option1 is a custom properties that a shop owner uses to define product variants. This is option1 of three available.
 	Option1 string
-	// Option2 is a custom properties that a shop owner uses to define product variants. You can define three options for a product variant.
+	// Option2 is a custom properties that a shop owner uses to define product variants. This is option2 of three available.
 	Option2 string
-	// Option3 is a custom properties that a shop owner uses to define product variants. You can define three options for a product variant.
+	// Option3 is a custom properties that a shop owner uses to define product variants. This is option3 of three available.
 	Option3 string
 	// Position is the order of the product variant in the list of product variants. The first position in the list is 1. The position of variants is indicated by the order in which they are listed.
 	Position int
