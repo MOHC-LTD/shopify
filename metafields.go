@@ -10,28 +10,18 @@ type Metafields []Metafield
 
 // GetByKey gets a metafield via its key
 func (m Metafields) GetByKey(key string) (interface{}, error) {
-	var err error
 	for _, metafield := range m {
 		if metafield.Key == key {
 			switch metafield.Type {
 			case NumberIntegerMetaFieldType:
 				var value int64
 				if metafield.Value != "" {
-					value, err = strconv.ParseInt(metafield.Value, 0, 64)
-					if err != nil {
-						return 0, err
-					}
+					return strconv.ParseInt(metafield.Value, 0, 64)
 				}
 
 				return value, nil
 			case BooleanMetaFieldType:
-				var value bool
-				value, err = strconv.ParseBool(metafield.Value)
-				if err != nil {
-					return false, err
-				}
-
-				return value, nil
+				return strconv.ParseBool(metafield.Value)
 			default:
 				return metafield.Value, nil
 			}
