@@ -1,6 +1,9 @@
 package shopify
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 // ErrVariantNotFound is thrown when no variant is found with the id
 type ErrVariantNotFound struct {
@@ -19,13 +22,4 @@ func NewErrVariantNotFound(id int64) ErrVariantNotFound {
 }
 
 // ErrVariantNotFoundByPosition is thrown when no variant is found with the id
-type ErrVariantNotFoundByPosition struct{}
-
-func (err ErrVariantNotFoundByPosition) Error() string {
-	return fmt.Sprintf("variant not found")
-}
-
-// NewErrVariantNotFoundByPosition builds the error
-func NewErrVariantNotFoundByPosition() ErrVariantNotFoundByPosition {
-	return ErrVariantNotFoundByPosition{}
-}
+var ErrVariantNotFoundByPosition = errors.New("variant not found")

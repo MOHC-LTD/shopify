@@ -13,7 +13,7 @@ func (v Variants) GetByPosition(position int) (Variant, error) {
 		}
 	}
 
-	return Variant{}, NewErrVariantNotFoundByPosition()
+	return Variant{}, ErrVariantNotFoundByPosition
 }
 
 // GetOption1Values returns all the option1 values for each variant if they have one
