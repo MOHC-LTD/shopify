@@ -1,6 +1,7 @@
 package shopify
 
 import (
+	"fmt"
 	"strconv"
 	"time"
 )
@@ -14,21 +15,23 @@ func (m Metafields) GetByKey(key string) (interface{}, error) {
 		if metafield.Key == key {
 			switch metafield.Type {
 			case NumberIntegerMetaFieldType:
-				var value int64
 				if metafield.Value != "" {
 					return strconv.ParseInt(metafield.Value, 0, 64)
 				}
 
-				return value, nil
+				return 0, nil
 			case BooleanMetaFieldType:
-				return strconv.ParseBool(metafield.Value)
+				if metafield.Value != "" {
+					return strconv.ParseBool(metafield.Value)
+				}
+				return false, nil
 			default:
 				return metafield.Value, nil
 			}
 		}
 	}
 
-	return "", nil
+	return nil, fmt.Errorf("could not find metafield with key %v", key)
 }
 
 // OwnerResource is the type of resource that the metafield is attached to.
@@ -183,4 +186,19 @@ type MetafieldRepository interface {
 type MetafieldQuery struct {
 	// Resource is the resource and ID that the metafields are attached to
 	Resource MetafieldResource
+}
+
+// ErrInvalidMetafieldType is thrown when an invalid metafield type was found
+type ErrInvalidMetafieldType struct {
+	msg string
+}
+
+// Error returns the specified message
+func (e ErrInvalidMetafieldType) Error() string {
+	return e.msg
+}
+
+// NewErrInvalidMetafieldType creates a new ErrInvalidMetafieldType
+func NewErrInvalidMetafieldType(metafieldType string) ErrInvalidMetafieldType {
+	return ErrInvalidMetafieldType{fmt.Sprintf("The metafield type was invalid for :  %s", metafieldType)}
 }
