@@ -23,5 +23,5 @@ type Shop interface {
 	// ProductImages are the images associated with products
 	ProductImages() ProductImageRepository
 	// Metafields are the metafields associated with the shop
-	Metafields() MetaFieldRepository
+	Metafields() MetafieldRepository
 }

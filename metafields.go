@@ -172,8 +172,8 @@ type MetafieldResource struct {
 	OwnerResource OwnerResource
 }
 
-// MetaFieldRepository maintains the metafields of a shop.
-type MetaFieldRepository interface {
+// MetafieldRepository maintains the metafields of a shop.
+type MetafieldRepository interface {
 	// List gets all the metafields
 	List(query MetafieldQuery) (Metafields, error)
 }
