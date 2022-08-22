@@ -37,11 +37,11 @@ type Variant struct {
 	SKU string
 	// Title is the title of the product variant.
 	Title string
-	// Option1 is a custom properties that a shop owner uses to define product variants. This is option1 of three available.
+	// Option1 is a custom property that a shop owner uses to define product variants.
 	Option1 string
-	// Option2 is a custom properties that a shop owner uses to define product variants. This is option2 of three available.
+	// Option2 is a custom property that a shop owner uses to define product variants.
 	Option2 string
-	// Option3 is a custom properties that a shop owner uses to define product variants. This is option3 of three available.
+	// Option3 is a custom property that a shop owner uses to define product variants.
 	Option3 string
 	// Position is the order of the product variant in the list of product variants. The first position in the list is 1. The position of variants is indicated by the order in which they are listed.
 	Position int
