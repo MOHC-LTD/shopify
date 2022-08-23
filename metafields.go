@@ -35,115 +35,106 @@ func (m Metafields) GetByKey(key string) (interface{}, error) {
 	return nil, fmt.Errorf("could not find metafield with key %v", key)
 }
 
-// OwnerResource is the type of resource that the metafield is attached to.
-type OwnerResource string
-
-// MetafieldType is the type of data that the metafield stores in the `value` field.
-type MetafieldType string
-
-// MetafieldListType is the type of data that the metafield stores in the `value` field for list types.
-type MetafieldListType MetafieldType
-
 // Types
 const (
 	// BooleanMetaFieldType is a true or false value.
-	BooleanMetaFieldType MetafieldType = "boolean"
+	BooleanMetaFieldType = "boolean"
 	// ColorMetaFieldType is a hexadecimal code for a color.
-	ColorMetaFieldType MetafieldType = "color"
+	ColorMetaFieldType = "color"
 	// DateMetaFieldType is a date in ISO 8601 format without a presumed timezone.
-	DateMetaFieldType MetafieldType = "date"
+	DateMetaFieldType = "date"
 	// DateTimeMetaFieldType is a date and time in ISO 8601 format without a presumed timezone
-	DateTimeMetaFieldType MetafieldType = "date_time"
+	DateTimeMetaFieldType = "date_time"
 	// DimensionMetaFieldType is a value and a unit of length. Valid unit values: in, ft, yd, mm, cm, m
-	DimensionMetaFieldType MetafieldType = "dimension"
+	DimensionMetaFieldType = "dimension"
 	// FileReferenceMetaFieldType is a reference to a file on the online store. The default value is GenericFile. You can use validations to add other file types (for example, Image).
-	FileReferenceMetaFieldType MetafieldType = "file_reference"
+	FileReferenceMetaFieldType = "file_reference"
 	// JSONMetaFieldType is a JSON-serializable value. This can be an object, an array, a string, a number, a boolean, or a null value.
-	JSONMetaFieldType MetafieldType = "json"
+	JSONMetaFieldType = "json"
 	// MultiLineTextFieldMetaFieldType is a multi-line text field.
-	MultiLineTextFieldMetaFieldType MetafieldType = "multi_line_text_field"
+	MultiLineTextFieldMetaFieldType = "multi_line_text_field"
 	// NumberDecimalMetaFieldType is a number with decimal places in the range of +/-9999999999999.999999999.
-	NumberDecimalMetaFieldType MetafieldType = "number_decimal"
+	NumberDecimalMetaFieldType = "number_decimal"
 	// NumberIntegerMetaFieldType is a whole number in the range of +/-9,007,199,254,740,991.
-	NumberIntegerMetaFieldType MetafieldType = "number_integer"
+	NumberIntegerMetaFieldType = "number_integer"
 	// PageReferenceMetaFieldType is a reference to a page on the online store.
-	PageReferenceMetaFieldType MetafieldType = "page_reference"
+	PageReferenceMetaFieldType = "page_reference"
 	// ProductReferenceMetaFieldType is a reference to a product on the online store.
-	ProductReferenceMetaFieldType MetafieldType = "product_reference"
+	ProductReferenceMetaFieldType = "product_reference"
 	// RatingMetaFieldType is a rating measured on a specified scale. Validations are required for ratings.
-	RatingMetaFieldType MetafieldType = "rating"
+	RatingMetaFieldType = "rating"
 	// SingleLineTextFieldMetaFieldType is a single-line text field.
-	SingleLineTextFieldMetaFieldType MetafieldType = "single_line_text_field"
+	SingleLineTextFieldMetaFieldType = "single_line_text_field"
 	// URLMetaFieldType is a URL with one of the allowed schemes: https, http, mailto, sms, tel.
-	URLMetaFieldType MetafieldType = "url"
+	URLMetaFieldType = "url"
 	// VariantReferenceMetaFieldType is a reference to a product variant on the online store.
-	VariantReferenceMetaFieldType MetafieldType = "variant_reference"
+	VariantReferenceMetaFieldType = "variant_reference"
 	// VolumeMetaFieldType is a value and a unit of volume. Valid unit values: ml, cl, l, m3 (cubic meters), us_fl_oz, us_pt, us_qt, us_gal, imp_fl_oz, imp_pt, imp_qt, imp_gal.
-	VolumeMetaFieldType MetafieldType = "volume"
+	VolumeMetaFieldType = "volume"
 	// WeightMetaFieldType is a value and a unit of weight. Valid unit values: oz, lb, g, kg.
-	WeightMetaFieldType MetafieldType = "weight"
+	WeightMetaFieldType = "weight"
 )
 
 // List types
 const (
 	// ListColorMetaFieldType is a list of hexadecimal color codes.
-	ListColorMetaFieldType MetafieldListType = "list.color"
+	ListColorMetaFieldType = "list.color"
 	// ListDateMetaFieldType is a list of dates in ISO 8601 format without presumed timezones.
-	ListDateMetaFieldType MetafieldListType = "list.date"
+	ListDateMetaFieldType = "list.date"
 	// ListDateTimeMetaFieldType is a list of dates and times in ISO 8601 format without presumed timezones.
-	ListDateTimeMetaFieldType MetafieldListType = "list.date_time"
+	ListDateTimeMetaFieldType = "list.date_time"
 	// ListDimensionMetaFieldType is a list of values and a unit of length. Valid unit values: in, ft, yd, mm, cm, m.
-	ListDimensionMetaFieldType MetafieldListType = "list.date_time"
+	ListDimensionMetaFieldType = "list.date_time"
 	// ListFileReferenceMetaFieldType is a list references to a file on the online store. The default value is GenericFile. You can use validations to add other file types (for example, Image
-	ListFileReferenceMetaFieldType MetafieldListType = "list.file_reference"
+	ListFileReferenceMetaFieldType = "list.file_reference"
 	// ListNumberIntegerMetaFieldType is a list of whole numbers in the range of +/-9,007,199,254,740,991.
-	ListNumberIntegerMetaFieldType MetafieldListType = "list.number_integer"
+	ListNumberIntegerMetaFieldType = "list.number_integer"
 	// ListNumberDecimalMetaFieldType is a list of numbers with decimal places in the range of +/-9999999999999.999999999.
-	ListNumberDecimalMetaFieldType MetafieldListType = "list.number_decimal"
+	ListNumberDecimalMetaFieldType = "list.number_decimal"
 	// ListPageReferenceMetaFieldType is a list of references to pages on the online store.
-	ListPageReferenceMetaFieldType MetafieldListType = "list.page_reference"
+	ListPageReferenceMetaFieldType = "list.page_reference"
 	// ListProductReferenceMetaFieldType is a list of product references.
-	ListProductReferenceMetaFieldType MetafieldListType = "list.product_reference"
+	ListProductReferenceMetaFieldType = "list.product_reference"
 	// ListRatingMetaFieldType is a list of ratings measured on a specified scale. Validations are required for ratings.
-	ListRatingMetaFieldType MetafieldListType = "list.product_reference"
+	ListRatingMetaFieldType = "list.product_reference"
 	// ListSingleLineTextFieldMetaFieldType is a list of single-line text fields.
-	ListSingleLineTextFieldMetaFieldType MetafieldListType = "list.single_line_text_field"
+	ListSingleLineTextFieldMetaFieldType = "list.single_line_text_field"
 	// ListURLMetaFieldType is a list of URLs with one of the allowed schemes: https, http, mailto, sms, tel.
-	ListURLMetaFieldType MetafieldListType = "list.url"
+	ListURLMetaFieldType = "list.url"
 	// ListVariantReferenceMetaFieldType is a list of references to a product variant on the online store.
-	ListVariantReferenceMetaFieldType MetafieldListType = "list.variant_reference"
+	ListVariantReferenceMetaFieldType = "list.variant_reference"
 	// ListVolumeMetaFieldType is a list of values and a unit of volume. Valid unit values: ml, cl, l, m3 (cubic meters), us_fl_oz, us_pt, us_qt, us_gal, imp_fl_oz, imp_pt, imp_qt, imp_gal.
-	ListVolumeMetaFieldType MetafieldListType = "list.volume"
+	ListVolumeMetaFieldType = "list.volume"
 	// ListWeightMetaFieldType is a list of values and a unit of weight. Valid unit values: oz, lb, g, kg
-	ListWeightMetaFieldType MetafieldListType = "list.weight"
+	ListWeightMetaFieldType = "list.weight"
 )
 
 // Resources
 const (
 	// ArticleResource is the resource for metafields related to articles.
-	ArticleResource OwnerResource = "article"
+	ArticleResource = "article"
 	// BlogResource is the resource for metafields related to the blog.
-	BlogResource OwnerResource = "blog"
+	BlogResource = "blog"
 	// CollectionResource is the resource for metafields related to collections.
-	CollectionResource OwnerResource = "collection"
+	CollectionResource = "collection"
 	// CustomerResource is the resource for metafields related to customers.
-	CustomerResource OwnerResource = "customer"
+	CustomerResource = "customer"
 	// DraftOrderResource is the resource for metafields related to draft orders.
-	DraftOrderResource OwnerResource = "draft_order"
+	DraftOrderResource = "draft_order"
 	// LocationResource is the resource for metafields related to locations.
-	LocationResource OwnerResource = "location"
+	LocationResource = "location"
 	// OrderResource is the resource for metafields related to orders.
-	OrderResource OwnerResource = "order"
+	OrderResource = "order"
 	// PageResource is the resource for metafields related to pages.
-	PageResource OwnerResource = "page"
+	PageResource = "page"
 	// ProductResource is the resource for metafields related to products.
-	ProductResource OwnerResource = "product"
+	ProductResource = "product"
 	// ProductImageResource is the resource for metafields related to product images.
-	ProductImageResource OwnerResource = "product_image"
+	ProductImageResource = "product_image"
 	// ProductVariantResource is the resource for metafields related to product variants.
-	ProductVariantResource OwnerResource = "variants"
+	ProductVariantResource = "variants"
 	// ShopResource is the resource for metafields related to the shop.
-	ShopResource OwnerResource = "shop"
+	ShopResource = "shop"
 )
 
 // Metafield is a flexible way to attach additional information to a Shopify resource (e.g. Product, Collection, etc.).
@@ -161,7 +152,7 @@ type Metafield struct {
 	// Value is the data stored in the metafield. The value is always stored as a string, regardless of the metafield's type.
 	Value string
 	// MetafieldType is the type of data that the metafield stores in the `value` field.
-	Type MetafieldType
+	Type string
 	// CreatedAt is the  date and time (ISO 8601 format) when the metafield was created.
 	CreatedAt time.Time
 	// UpdatedAt is the  date and time (ISO 8601 format) when the metafield was last updated.
@@ -173,7 +164,7 @@ type MetafieldResource struct {
 	// OwnerID is the unique ID of the resource that the metafield is attached to.
 	OwnerID int64
 	// OwnerResource is the type of resource that the metafield is attached to.
-	OwnerResource OwnerResource
+	OwnerResource string
 }
 
 // MetafieldRepository maintains the metafields of a shop.
