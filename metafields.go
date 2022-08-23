@@ -9,7 +9,8 @@ import (
 // Metafields are a flexible way to attach additional information to a Shopify resource (e.g. Product, Collection, etc.).
 type Metafields []Metafield
 
-// GetByKey gets a metafield via its key
+// GetByKey gets a metafield via its key. Note defaults to string if type is not found. This is because most
+// types are strings and there are a lot of different metafield types that would need to be caught.
 func (m Metafields) GetByKey(key string) (interface{}, error) {
 	for _, metafield := range m {
 		if metafield.Key == key {
