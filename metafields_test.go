@@ -8,9 +8,9 @@ import (
 )
 
 /**
-Given I have a single metafield
-When I ask to get that metafield by its key when its of type boolean
-Then the value is returned is the correct type
+GIVEN I have a single metafield
+WHEN I ask to get that metafield by its key when its of type boolean
+THEN the value returned is of the correct type and what is expected
 */
 func TestMetafields_GetByKeyBoolean(t *testing.T) {
 	fake := faker.New()
@@ -35,9 +35,9 @@ func TestMetafields_GetByKeyBoolean(t *testing.T) {
 }
 
 /**
-Given I have a single metafield
-When I ask to get that metafield by its key when its of type string
-Then the value is returned is the correct type
+GIVEN I have a single metafield
+WHEN I ask to get that metafield by its key when its of type string
+THEN the value returned is of the correct type and what is expected
 */
 func TestMetafields_GetByKeyString(t *testing.T) {
 	fake := faker.New()
@@ -60,9 +60,9 @@ func TestMetafields_GetByKeyString(t *testing.T) {
 }
 
 /**
-Given I have a single metafield
-When I ask to get that metafield by its key when its of type integer
-Then the value is returned is the correct type
+GIVEN I have a single metafield
+WHEN I ask to get that metafield by its key when its of type integer
+THEN the value returned is of the correct type and what is expected
 */
 func TestMetafields_GetByKeyInteger(t *testing.T) {
 	fake := faker.New()
@@ -85,9 +85,9 @@ func TestMetafields_GetByKeyInteger(t *testing.T) {
 }
 
 /**
-Given I have a single metafield
-When I ask to get that metafield by an invalid key
-Then the value is returned is the correct type
+GIVEN I have a single metafield
+WHEN I ask to get that metafield by an invalid key
+THEN the value returned is of the correct type and what is expected
 */
 func TestMetafields_GetByKeyInvalid(t *testing.T) {
 	fake := faker.New()
