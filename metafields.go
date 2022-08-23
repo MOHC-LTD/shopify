@@ -179,18 +179,3 @@ type MetafieldQuery struct {
 	// Resource is the resource and ID that the metafields are attached to
 	Resource MetafieldResource
 }
-
-// ErrInvalidMetafieldType is thrown when an invalid metafield type was found
-type ErrInvalidMetafieldType struct {
-	msg string
-}
-
-// Error returns the specified message
-func (e ErrInvalidMetafieldType) Error() string {
-	return e.msg
-}
-
-// NewErrInvalidMetafieldType creates a new ErrInvalidMetafieldType
-func NewErrInvalidMetafieldType(metafieldType string) ErrInvalidMetafieldType {
-	return ErrInvalidMetafieldType{fmt.Sprintf("The metafield type was invalid for :  %s", metafieldType)}
-}
