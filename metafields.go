@@ -30,9 +30,10 @@ func (m Metafields) GetByKey(key string) (interface{}, error) {
 				return metafield.Value, nil
 			}
 		}
+
 	}
 
-	return nil, fmt.Errorf("could not find metafield with key %v", key)
+	return "", fmt.Errorf("could not find metafield with key %v", key)
 }
 
 // Types
