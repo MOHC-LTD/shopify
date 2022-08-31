@@ -181,4 +181,6 @@ type OrderRepository interface {
 	Close(id int64) error
 	// Create creates a new order
 	Create(order Order) (Order, error)
+	// Update updates a single order
+	Update(order Order) (Order, error)
 }
