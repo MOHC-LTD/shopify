@@ -171,10 +171,12 @@ type OrderQuery struct {
 
 // OrderRepository maintains the orders in the shop
 type OrderRepository interface {
-	// List gets all of the orders
+	// List gets all the orders
 	List(query OrderQuery) (Orders, error)
 	// Get gets an order
 	Get(id int64) (Order, error)
+	// Open opens an order
+	Open(id int64) (Order, error)
 	// Close closes an order
 	Close(id int64) error
 	// Create creates a new order
