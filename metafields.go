@@ -171,6 +171,8 @@ type MetafieldResource struct {
 type MetafieldRepository interface {
 	// List gets all the metafields
 	List(query MetafieldQuery) (Metafields, error)
+	// Update updates a single metafield
+	Update(metafield Metafield) (Metafield, error)
 }
 
 // MetafieldQuery are properties that can be used to filter the returned metafields
