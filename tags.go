@@ -12,5 +12,10 @@ func NewTags(tags []string) Tags {
 
 // Split parses the tag string and returns a list of the individual tags
 func (tags Tags) Split() []string {
-	return strings.Split(string(tags), ", ")
+	splitStrings := strings.Split(string(tags), ", ")
+	if len(splitStrings) == 1 && splitStrings[0] == "" {
+		return []string{}
+	}
+
+	return splitStrings
 }
