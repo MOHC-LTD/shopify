@@ -24,4 +24,6 @@ type Customer struct {
 type CustomerRepository interface {
 	// Update updates a single customer
 	Update(customer Customer) (Customer, error)
+	// Get gets customer with the provided id
+	Get(id int64) (Customer, error)
 }
