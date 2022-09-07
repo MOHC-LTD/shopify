@@ -14,6 +14,8 @@ type Customer struct {
 	FirstName string
 	// LastName is the customer's last name.
 	LastName string
+	// Tags are the tags linked to the customer.
+	Tags string
 	// CreatedAt is the date and time when the customer was created.
 	CreatedAt time.Time
 	// UpdatedAt is the date and time (ISO 8601 format) when the customer information was last updated.
