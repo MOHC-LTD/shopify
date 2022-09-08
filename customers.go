@@ -14,6 +14,8 @@ type Customer struct {
 	FirstName string
 	// LastName is the customer's last name.
 	LastName string
+	// Tags are the tags linked to the customer.
+	Tags Tags
 	// CreatedAt is the date and time when the customer was created.
 	CreatedAt time.Time
 	// UpdatedAt is the date and time (ISO 8601 format) when the customer information was last updated.
@@ -24,4 +26,6 @@ type Customer struct {
 type CustomerRepository interface {
 	// Update updates a single customer
 	Update(customer Customer) (Customer, error)
+	// Get gets customer with the provided id
+	Get(id int64) (Customer, error)
 }
