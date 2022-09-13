@@ -150,7 +150,7 @@ type Metafield struct {
 	// Resource is the unique ID of the resource that the metafield is attached to and the type of resource that the metafield is attached to.
 	Resource MetafieldResource
 	// Value is the data stored in the metafield. The value is always stored as a string, regardless of the metafield's type.
-	Value string
+	Value interface{}
 	// MetafieldType is the type of data that the metafield stores in the `value` field.
 	Type string
 	// CreatedAt is the  date and time (ISO 8601 format) when the metafield was created.
@@ -171,8 +171,6 @@ type MetafieldResource struct {
 type MetafieldRepository interface {
 	// List gets all the metafields
 	List(query MetafieldQuery) (Metafields, error)
-	// Update updates a single metafield
-	Update(metafield Metafield) (Metafield, error)
 }
 
 // MetafieldQuery are properties that can be used to filter the returned metafields
