@@ -31,7 +31,9 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 					return metafield, nil
 				}
 
-				return Metafield{}, nil
+				metafield.Value = 0
+
+				return metafield, nil
 			case BooleanMetaFieldType:
 				if metafield.Value != "" {
 					converted, err := strconv.ParseBool(metafield.Value.(string))
@@ -48,7 +50,9 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 					return metafield, nil
 				}
 
-				return Metafield{}, nil
+				metafield.Value = false
+
+				return metafield, nil
 			default:
 				return metafield, nil
 			}
