@@ -11,28 +11,51 @@ type Metafields []Metafield
 
 // GetByKey gets a metafield via its key. Note defaults to string if type is not found. This is because most
 // types are strings and there are a lot of different metafield types that would need to be caught.
-func (m Metafields) GetByKey(key string) (interface{}, error) {
+func (m Metafields) GetByKey(key string) (Metafield, error) {
 	for _, metafield := range m {
 		if metafield.Key == key {
 			switch metafield.Type {
 			case NumberIntegerMetaFieldType:
 				if metafield.Value != "" {
-					return strconv.ParseInt(metafield.Value, 0, 64)
+					converted, err := strconv.ParseInt(metafield.Value.(string), 0, 64)
+					if err != nil {
+						return Metafield{}, fmt.Errorf(
+							"could not find convert %v metafield type from key %v",
+							NumberIntegerMetaFieldType,
+							key,
+						)
+					}
+
+					metafield.Value = converted
+
+					return metafield, nil
 				}
 
-				return 0, nil
+				return Metafield{}, nil
 			case BooleanMetaFieldType:
 				if metafield.Value != "" {
-					return strconv.ParseBool(metafield.Value)
+					converted, err := strconv.ParseBool(metafield.Value.(string))
+					if err != nil {
+						return Metafield{}, fmt.Errorf(
+							"could not find convert %v metafield type from key %v",
+							NumberIntegerMetaFieldType,
+							key,
+						)
+					}
+
+					metafield.Value = converted
+
+					return metafield, nil
 				}
-				return false, nil
+
+				return Metafield{}, nil
 			default:
-				return metafield.Value, nil
+				return metafield, nil
 			}
 		}
 	}
 
-	return nil, fmt.Errorf("could not find metafield with key %v", key)
+	return Metafield{}, ErrMetafieldNotFound{}
 }
 
 // Types
