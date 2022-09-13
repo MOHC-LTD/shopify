@@ -179,3 +179,15 @@ type MetafieldQuery struct {
 	// Resource is the resource and ID that the metafields are attached to
 	Resource MetafieldResource
 }
+
+// ErrMetafieldNotFound is thrown when a metafield could not be found
+type ErrMetafieldNotFound struct{}
+
+func (err ErrMetafieldNotFound) Error() string {
+	return fmt.Sprintf("metafield not found")
+}
+
+// NewErrMetafieldNotFound builds the error
+func NewErrMetafieldNotFound() ErrMetafieldNotFound {
+	return ErrMetafieldNotFound{}
+}
