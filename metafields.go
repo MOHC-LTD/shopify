@@ -176,7 +176,7 @@ type Metafield struct {
 	Namespace string
 	// Resource is the unique ID of the resource that the metafield is attached to and the type of resource that the metafield is attached to.
 	Resource MetafieldResource
-	// Value is the data stored in the metafield. The value is always stored as a string, regardless of the metafield's type.
+	// Value is the data stored in the metafield. The model stores the metafield in it's actual type.
 	Value interface{}
 	// MetafieldType is the type of data that the metafield stores in the `value` field.
 	Type string
