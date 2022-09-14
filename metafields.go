@@ -11,28 +11,55 @@ type Metafields []Metafield
 
 // GetByKey gets a metafield via its key. Note defaults to string if type is not found. This is because most
 // types are strings and there are a lot of different metafield types that would need to be caught.
-func (m Metafields) GetByKey(key string) (interface{}, error) {
+func (m Metafields) GetByKey(key string) (Metafield, error) {
 	for _, metafield := range m {
 		if metafield.Key == key {
 			switch metafield.Type {
 			case NumberIntegerMetaFieldType:
 				if metafield.Value != "" {
-					return strconv.ParseInt(metafield.Value, 0, 64)
+					converted, err := strconv.ParseInt(metafield.Value.(string), 0, 64)
+					if err != nil {
+						return Metafield{}, fmt.Errorf(
+							"could not find convert %v metafield type from key %v",
+							NumberIntegerMetaFieldType,
+							key,
+						)
+					}
+
+					metafield.Value = converted
+
+					return metafield, nil
 				}
 
-				return 0, nil
+				metafield.Value = 0
+
+				return metafield, nil
 			case BooleanMetaFieldType:
 				if metafield.Value != "" {
-					return strconv.ParseBool(metafield.Value)
+					converted, err := strconv.ParseBool(metafield.Value.(string))
+					if err != nil {
+						return Metafield{}, fmt.Errorf(
+							"could not find convert %v metafield type from key %v",
+							NumberIntegerMetaFieldType,
+							key,
+						)
+					}
+
+					metafield.Value = converted
+
+					return metafield, nil
 				}
-				return false, nil
+
+				metafield.Value = false
+
+				return metafield, nil
 			default:
-				return metafield.Value, nil
+				return metafield, nil
 			}
 		}
 	}
 
-	return nil, fmt.Errorf("could not find metafield with key %v", key)
+	return Metafield{}, NewErrMetafieldNotFoundByKey(key)
 }
 
 // Types
@@ -149,8 +176,8 @@ type Metafield struct {
 	Namespace string
 	// Resource is the unique ID of the resource that the metafield is attached to and the type of resource that the metafield is attached to.
 	Resource MetafieldResource
-	// Value is the data stored in the metafield. The value is always stored as a string, regardless of the metafield's type.
-	Value string
+	// Value is the data stored in the metafield. The model stores the metafield in it's actual type.
+	Value interface{}
 	// MetafieldType is the type of data that the metafield stores in the `value` field.
 	Type string
 	// CreatedAt is the  date and time (ISO 8601 format) when the metafield was created.
@@ -178,4 +205,18 @@ type MetafieldRepository interface {
 type MetafieldQuery struct {
 	// Resource is the resource and ID that the metafields are attached to
 	Resource MetafieldResource
+}
+
+// ErrMetafieldNotFoundByKey is thrown when a metafield could not be found by its key
+type ErrMetafieldNotFoundByKey struct {
+	key string
+}
+
+func (err ErrMetafieldNotFoundByKey) Error() string {
+	return fmt.Sprintf("could not find metafield with key %v", err.key)
+}
+
+// NewErrMetafieldNotFoundByKey builds the error
+func NewErrMetafieldNotFoundByKey(key string) ErrMetafieldNotFoundByKey {
+	return ErrMetafieldNotFoundByKey{key}
 }

@@ -24,13 +24,13 @@ func TestMetafields_GetByKeyBoolean(t *testing.T) {
 	metafield.Value = booleanString
 	metafields := Metafields{metafield}
 
-	retValue, err := metafields.GetByKey(metafield.Key)
+	returnedMetafield, err := metafields.GetByKey(metafield.Key)
 	if err != nil {
 		t.Errorf("An error was thrown: %v", err)
 	}
 
-	if retValue.(bool) != expectedValue {
-		t.Errorf("Was expecting: %v got %v", retValue.(bool), expectedValue)
+	if returnedMetafield.Value.(bool) != expectedValue {
+		t.Errorf("Was expecting: %v got %v", returnedMetafield.Value.(bool), expectedValue)
 	}
 }
 
@@ -49,13 +49,13 @@ func TestMetafields_GetByKeyString(t *testing.T) {
 	metafield.Value = expectedValue
 	metafields := Metafields{metafield}
 
-	retValue, err := metafields.GetByKey(metafield.Key)
+	returnedMetafield, err := metafields.GetByKey(metafield.Key)
 	if err != nil {
 		t.Errorf("An error was thrown: %v", err)
 	}
 
-	if retValue.(string) != expectedValue {
-		t.Errorf("Was expecting: %v got %v", retValue.(bool), expectedValue)
+	if returnedMetafield.Value.(string) != expectedValue {
+		t.Errorf("Was expecting: %v got %v", returnedMetafield.Value.(bool), expectedValue)
 	}
 }
 
@@ -74,13 +74,13 @@ func TestMetafields_GetByKeyInteger(t *testing.T) {
 	metafield.Value = strconv.FormatInt(expectedValue, 10)
 	metafields := Metafields{metafield}
 
-	retValue, err := metafields.GetByKey(metafield.Key)
+	returnedMetafield, err := metafields.GetByKey(metafield.Key)
 	if err != nil {
 		t.Errorf("An error was thrown: %v", err)
 	}
 
-	if retValue.(int64) != expectedValue {
-		t.Errorf("Was expecting: %v got %v", retValue.(bool), expectedValue)
+	if returnedMetafield.Value.(int64) != expectedValue {
+		t.Errorf("Was expecting: %v got %v", returnedMetafield.Value.(bool), expectedValue)
 	}
 }
 
