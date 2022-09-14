@@ -59,7 +59,7 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 		}
 	}
 
-	return Metafield{}, ErrMetafieldNotFound{}
+	return Metafield{}, NewErrMetafieldNotFoundByKey(key)
 }
 
 // Types
@@ -207,14 +207,16 @@ type MetafieldQuery struct {
 	Resource MetafieldResource
 }
 
-// ErrMetafieldNotFound is thrown when a metafield could not be found
-type ErrMetafieldNotFound struct{}
-
-func (err ErrMetafieldNotFound) Error() string {
-	return fmt.Sprintf("metafield not found")
+// ErrMetafieldNotFoundByKey is thrown when a metafield could not be found by its key
+type ErrMetafieldNotFoundByKey struct {
+	key string
 }
 
-// NewErrMetafieldNotFound builds the error
-func NewErrMetafieldNotFound() ErrMetafieldNotFound {
-	return ErrMetafieldNotFound{}
+func (err ErrMetafieldNotFoundByKey) Error() string {
+	return fmt.Sprintf("could not find metafield with key %v", err.key)
+}
+
+// NewErrMetafieldNotFoundByKey builds the error
+func NewErrMetafieldNotFoundByKey(key string) ErrMetafieldNotFoundByKey {
+	return ErrMetafieldNotFoundByKey{key}
 }
