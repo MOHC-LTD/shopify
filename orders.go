@@ -181,4 +181,8 @@ type OrderRepository interface {
 	Create(order Order) (Order, error)
 	// Update updates a single order
 	Update(order Order) (Order, error)
+	// CreateMetafield creates a single metafield for an order
+	CreateMetafield(orderID int64, metafield Metafield) (Metafield, error)
+	// UpdateMetafield updates a single metafield
+	UpdateMetafield(orderID int64, metafield Metafield) (Metafield, error)
 }
