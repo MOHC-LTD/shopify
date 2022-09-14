@@ -207,7 +207,7 @@ type MetafieldQuery struct {
 	Resource MetafieldResource
 }
 
-// ErrMetafieldNotFoundByKey is thrown when a metafield could not be found
+// ErrMetafieldNotFoundByKey is thrown when a metafield could not be found by its key
 type ErrMetafieldNotFoundByKey struct {
 	key string
 }
