@@ -177,6 +177,8 @@ type OrderRepository interface {
 	Get(id int64) (Order, error)
 	// Close closes an order
 	Close(id int64) error
+	// Open opens an order
+	Open(id int64) (Order, error)
 	// Create creates a new order
 	Create(order Order) (Order, error)
 	// Update updates a single order
