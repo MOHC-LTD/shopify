@@ -12,7 +12,12 @@ func NewTags(tags []string) Tags {
 
 // Split parses the tag string and returns a list of the individual tags
 func (tags Tags) Split() []string {
-	return strings.Split(string(tags), ", ")
+	splitStrings := strings.Split(string(tags), ", ")
+	if len(splitStrings) == 1 && splitStrings[0] == "" {
+		return []string{}
+	}
+
+	return splitStrings
 }
 
 // GetTagValue returns the value of a tag based on the key provided. The separator character is used to separate the key from value key:value
