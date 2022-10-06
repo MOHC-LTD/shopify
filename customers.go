@@ -29,8 +29,3 @@ type CustomerRepository interface {
 	// Get gets customer with the provided id
 	Get(id int64) (Customer, error)
 }
-
-type CustomerAddressRepository interface {
-	// Delete deletes the specified address for the specified customer
-	Delete(id int64, addressID int64) error
-}
