@@ -22,12 +22,15 @@ type Customer struct {
 	UpdatedAt time.Time
 }
 
+// Customers is a collection of customers
+type Customers []Customer
+
 // CustomerRepository maintains the customers of a shop.
 type CustomerRepository interface {
 	// Update updates a single customer
 	Update(customer Customer) (Customer, error)
 	// Get gets customer with the provided id
 	Get(id int64) (Customer, error)
-	// GetByQuery gets the customer matching the query and returns the fields requested
-	GetByQuery(fields []string, query string) (Customer, error)
+	// GetByQuery gets the customers matching the query and returns the fields requested
+	GetByQuery(fields []string, query string) (Customers, error)
 }
