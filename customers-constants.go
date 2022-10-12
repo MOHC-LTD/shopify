@@ -1,8 +1,8 @@
 package shopify
 
 const (
-	// CustomerQueryTag searches by customer tag
-	CustomerQueryTag = "customer_tag"
+	// CustomerSearchTag searches by the customer tag
+	CustomerSearchTag = "customer_tag"
 	// CustomerID is the id of the customer
 	CustomerID = "id"
 )
