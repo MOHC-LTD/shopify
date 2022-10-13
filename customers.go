@@ -1,6 +1,9 @@
 package shopify
 
-import "time"
+import (
+	"net/url"
+	"time"
+)
 
 // Customer is a shopify customer
 type Customer struct {
@@ -25,6 +28,21 @@ type Customer struct {
 // Customers is a collection of customers
 type Customers []Customer
 
+// CustomerSearchQuery contains all the supported search queries
+type CustomerSearchQuery struct {
+	Tag string
+}
+
+func (c *CustomerSearchQuery) String() string {
+	params := url.Values{}
+
+	if c.Tag != "" {
+		params.Add("customer_tag:", c.Tag)
+	}
+
+	return params.Encode()
+}
+
 // CustomerRepository maintains the customers of a shop.
 type CustomerRepository interface {
 	// Update updates a single customer
@@ -32,5 +50,5 @@ type CustomerRepository interface {
 	// Get gets customer with the provided id
 	Get(id int64) (Customer, error)
 	// GetByQuery gets the customers matching the query and returns the fields requested
-	GetByQuery(fields []string, query string) (Customers, error)
+	GetByQuery(fields []string, query CustomerSearchQuery) (Customers, error)
 }
