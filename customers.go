@@ -64,6 +64,7 @@ type CustomerSearchQuery struct {
 	ProductSubscriberStatus string
 }
 
+// String converts the search query into a string
 func (c *CustomerSearchQuery) String() string {
 	params := url.Values{}
 
