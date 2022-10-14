@@ -1,6 +1,7 @@
 package shopify
 
 import (
+	"fmt"
 	"net/url"
 	"time"
 )
@@ -30,14 +31,80 @@ type Customers []Customer
 
 // CustomerSearchQuery contains all the supported search queries
 type CustomerSearchQuery struct {
-	Tag string
+	AcceptsMarketing        string
+	ActivationDate          string
+	Address1                string
+	Address2                string
+	City                    string
+	Company                 string
+	Country                 string
+	CustomerDate            string
+	CustomerFirstName       string
+	CustomerID              string
+	CustomerLastName        string
+	CustomerTag             string
+	Email                   string
+	EmailMarketingState     string
+	FirstName               string
+	FirstOrderDate          string
+	ID                      string
+	LastAbandonedOrderDate  string
+	LastName                string
+	MultipassIdentifier     string
+	OrdersCount             string
+	OrderDate               string
+	Phone                   string
+	Province                string
+	ShopID                  string
+	State                   string
+	Tag                     string
+	TotalSpent              string
+	UpdatedAt               string
+	VerifiedEmail           string
+	ProductSubscriberStatus string
 }
 
 func (c *CustomerSearchQuery) String() string {
 	params := url.Values{}
 
-	if c.Tag != "" {
-		params.Add("customer_tag:", c.Tag)
+	queryData := map[string]string{
+		"accepts_marketing":         c.AcceptsMarketing,
+		"activation_date":           c.ActivationDate,
+		"address1":                  c.Address1,
+		"address2":                  c.Address2,
+		"city":                      c.City,
+		"company":                   c.Company,
+		"country":                   c.Country,
+		"customer_date":             c.CustomerDate,
+		"customer_first_name":       c.CustomerFirstName,
+		"customer_id":               c.CustomerID,
+		"customer_last_name":        c.CustomerLastName,
+		"customer_tag":              c.CustomerTag,
+		"email":                     c.Email,
+		"email_marketing_state":     c.EmailMarketingState,
+		"first_name":                c.FirstName,
+		"first_order_date":          c.FirstOrderDate,
+		"id":                        c.ID,
+		"last_abandoned_order_date": c.LastAbandonedOrderDate,
+		"last_name":                 c.LastName,
+		"multipass_identifier":      c.MultipassIdentifier,
+		"orders_count":              c.OrdersCount,
+		"order_date":                c.OrderDate,
+		"phone":                     c.Phone,
+		"province":                  c.Province,
+		"shop_id":                   c.ShopID,
+		"state":                     c.State,
+		"tag":                       c.Tag,
+		"total_spent":               c.TotalSpent,
+		"updated_at":                c.UpdatedAt,
+		"verified_email":            c.VerifiedEmail,
+		"product_subscriber_status": c.ProductSubscriberStatus,
+	}
+
+	for queryKey, queryValue := range queryData {
+		if queryValue != "" {
+			params.Add(fmt.Sprintf("%v:", queryKey), queryValue)
+		}
 	}
 
 	return params.Encode()
