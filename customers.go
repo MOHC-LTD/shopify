@@ -116,6 +116,6 @@ type CustomerRepository interface {
 	Update(customer Customer) (Customer, error)
 	// Get gets customer with the provided id
 	Get(id int64) (Customer, error)
-	// GetByQuery gets the customers matching the query and returns the fields requested
+	// GetByQuery gets the customers matching the passed query
 	GetByQuery(fields []string, query CustomerSearchQuery) (Customers, error)
 }
