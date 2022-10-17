@@ -34,13 +34,13 @@ func GetTagValue(tags []string, key string, separator string) string {
 	return ""
 }
 
-// AddNewTag adds a new tag at the beginning of the comma-separated tag list
-func (tags Tags) AddNewTag(newTag string) Tags {
+// Add adds a new tag at the beginning of the comma-separated tag list
+func (tags Tags) Add(newTag string) Tags {
 	return Tags(fmt.Sprintf("%v, %v", newTag, tags))
 }
 
-// RemoveTagFromListByKey removes the first item found from the tag list that contains the specified key
-func (tags Tags) RemoveTagFromListByKey(key string) Tags {
+// RemoveFromListByKey removes the first item found from the tag list that contains the specified key
+func (tags Tags) RemoveFromListByKey(key string) Tags {
 	tagsList := tags.Split()
 
 	for i, tag := range tagsList {
