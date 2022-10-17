@@ -16,8 +16,6 @@ type Address struct {
 	CountryCode string
 	// FirstName - the first name of the person associated with the address
 	FirstName string
-	// ID - the ID of the address
-	ID uint64
 	// Latitude - the latitude of the address
 	Latitude float64
 	// Longitude - the longitude of the address
