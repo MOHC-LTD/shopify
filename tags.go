@@ -1,9 +1,6 @@
 package shopify
 
-import (
-	"fmt"
-	"strings"
-)
+import "strings"
 
 // Tags are tags attached to the order, formatted as a string of comma-separated values. Tags are additional short descriptors, commonly used for filtering and searching. Each individual tag is limited to 40 characters in length.
 type Tags string
@@ -36,7 +33,7 @@ func GetTagValue(tags []string, key string, separator string) string {
 
 // Add adds a new tag at the beginning of the comma-separated tag list
 func (tags Tags) Add(newTag string) Tags {
-	return Tags(fmt.Sprintf("%v, %v", newTag, tags))
+	return Tags(strings.Join(append(tags.Split(), newTag), ", "))
 }
 
 // RemoveFromListByKey removes the first item found from the tag list that contains the specified key
