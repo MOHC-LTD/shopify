@@ -16,12 +16,12 @@ type Address struct {
 	CountryCode string
 	// FirstName - the first name of the person associated with the address
 	FirstName string
+	// LastName - the last name of the person associated with the address
+	LastName string
 	// Latitude - the latitude of the address
 	Latitude float64
 	// Longitude - the longitude of the address
 	Longitude float64
-	// LastName - the last name of the person associated with the address
-	LastName string
 	// Name - the full name of the person associated with the address
 	Name string
 	// Phone - the phone number at the address
