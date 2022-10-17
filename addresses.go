@@ -18,6 +18,10 @@ type Address struct {
 	FirstName string
 	// ID - the ID of the address
 	ID uint64
+	// Latitude - the latitude of the address
+	Latitude float64
+	// Longitude - the longitude of the address
+	Longitude float64
 	// LastName - the last name of the person associated with the address
 	LastName string
 	// Name - the full name of the person associated with the address
