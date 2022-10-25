@@ -36,8 +36,8 @@ func (tags Tags) Add(newTag string) Tags {
 	return Tags(strings.Join(append(tags.Split(), newTag), ", "))
 }
 
-// RemoveFromListByKey removes the first item found from the tag list that contains the specified key
-func (tags Tags) RemoveFromListByKey(key string) Tags {
+// RemoveByKey removes the first item found from the tag list that contains the specified key
+func (tags Tags) RemoveByKey(key string) Tags {
 	tagsList := tags.Split()
 
 	for i, tag := range tagsList {
