@@ -39,9 +39,10 @@ func (tags Tags) Add(newTag string) Tags {
 // RemoveByKey removes the first item found from the tag list that contains the specified key
 func (tags Tags) RemoveByKey(key string) Tags {
 	tagsList := tags.Split()
+	lowerCaseKey := strings.ToLower(key)
 
 	for i, tag := range tagsList {
-		if strings.Contains(tag, key) {
+		if strings.Contains(strings.ToLower(tag), lowerCaseKey) {
 			tagsList = append(tagsList[:i], tagsList[i+1:]...)
 			break
 		}
