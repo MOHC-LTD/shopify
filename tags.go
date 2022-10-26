@@ -30,3 +30,22 @@ func GetTagValue(tags []string, key string, separator string) string {
 
 	return ""
 }
+
+// Add adds a new tag at the beginning of the comma-separated tag list
+func (tags Tags) Add(newTag string) Tags {
+	return Tags(strings.Join(append(tags.Split(), newTag), ", "))
+}
+
+// RemoveByKey removes the first item found from the tag list that contains the specified key
+func (tags Tags) RemoveByKey(key string) Tags {
+	tagsList := tags.Split()
+
+	for i, tag := range tagsList {
+		if strings.Contains(tag, key) {
+			tagsList = append(tagsList[:i], tagsList[i+1:]...)
+			break
+		}
+	}
+
+	return NewTags(tagsList)
+}
