@@ -11,7 +11,7 @@ func TestTags_Split_One(t *testing.T) {
 
 	splittedTags := tags.Split()
 
-	if len(splittedTags) != 1 {
+	if len(splittedTags) != expectedTagNum {
 		t.Errorf("Was expecting: %v got %v", expectedTagNum, len(splittedTags))
 	}
 }
