@@ -1,6 +1,7 @@
 package shopify
 
 import (
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"time"
@@ -51,6 +52,22 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 				}
 
 				metafield.Value = false
+
+				return metafield, nil
+			case ListSingleLineTextFieldMetaFieldType:
+				if metafield.Value != nil {
+					var converted []string
+					err := json.Unmarshal([]byte(metafield.Value.(string)), &converted)
+					if err != nil {
+						return Metafield{}, fmt.Errorf(
+							"could not find convert %v metafield type from key %v",
+							ListSingleLineTextFieldMetaFieldType,
+							key,
+						)
+					}
+
+					metafield.Value = converted
+				}
 
 				return metafield, nil
 			default:
