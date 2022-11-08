@@ -6,7 +6,7 @@ type CustomerAddressRepository interface {
 	Create(id int64, address CustomerAddress) (CustomerAddress, error)
 	// Delete deletes the specified address for the specified customer
 	Delete(id int64, addressID int64) error
-	// Update updates an address for a specified customer
+	// Update updates the address for the specified customer
 	Update(id int64, address CustomerAddress) (CustomerAddress, error)
 }
 

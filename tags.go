@@ -55,10 +55,12 @@ func GetTagValue(tags []string, key string, separator string) string {
 	return ""
 }
 
-// TagExists returns true if tag exists in tags
-func TagExists(tags Tags, tagValue string) bool {
+// HasTag returns true if tag exists in tags
+func (tags Tags) HasTag(tagValue string) bool {
+	tagLowerCase := strings.ToLower(tagValue)
+
 	for _, tag := range tags.Split() {
-		if strings.ToLower(tag) == strings.ToLower(tagValue) {
+		if strings.ToLower(tag) == tagLowerCase {
 			return true
 		}
 	}
