@@ -21,7 +21,7 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 					converted, err := strconv.ParseInt(metafield.Value.(string), 0, 64)
 					if err != nil {
 						return Metafield{}, fmt.Errorf(
-							"could not find convert %v metafield type from key %v",
+							"could not convert %v metafield type from key %v",
 							NumberIntegerMetaFieldType,
 							key,
 						)
@@ -40,7 +40,7 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 					converted, err := strconv.ParseBool(metafield.Value.(string))
 					if err != nil {
 						return Metafield{}, fmt.Errorf(
-							"could not find convert %v metafield type from key %v",
+							"could not convert %v metafield type from key %v",
 							NumberIntegerMetaFieldType,
 							key,
 						)
@@ -60,7 +60,7 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 					err := json.Unmarshal([]byte(metafield.Value.(string)), &converted)
 					if err != nil {
 						return Metafield{}, fmt.Errorf(
-							"could not find convert %v metafield type from key %v",
+							"could not convert %v metafield type from key %v",
 							ListSingleLineTextFieldMetaFieldType,
 							key,
 						)
