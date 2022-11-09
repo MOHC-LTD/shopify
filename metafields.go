@@ -17,57 +17,43 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 		if metafield.Key == key {
 			switch metafield.Type {
 			case NumberIntegerMetaFieldType:
-				if metafield.Value != "" {
-					converted, err := strconv.ParseInt(metafield.Value.(string), 0, 64)
-					if err != nil {
-						return Metafield{}, fmt.Errorf(
-							"could not convert %v metafield type from key %v",
-							NumberIntegerMetaFieldType,
-							key,
-						)
-					}
-
-					metafield.Value = converted
-
-					return metafield, nil
+				converted, err := strconv.ParseInt(metafield.Value.(string), 0, 64)
+				if err != nil {
+					return Metafield{}, fmt.Errorf(
+						"could not convert %v metafield type from key %v",
+						NumberIntegerMetaFieldType,
+						key,
+					)
 				}
 
-				metafield.Value = 0
+				metafield.Value = converted
 
 				return metafield, nil
 			case BooleanMetaFieldType:
-				if metafield.Value != "" {
-					converted, err := strconv.ParseBool(metafield.Value.(string))
-					if err != nil {
-						return Metafield{}, fmt.Errorf(
-							"could not convert %v metafield type from key %v",
-							NumberIntegerMetaFieldType,
-							key,
-						)
-					}
-
-					metafield.Value = converted
-
-					return metafield, nil
+				converted, err := strconv.ParseBool(metafield.Value.(string))
+				if err != nil {
+					return Metafield{}, fmt.Errorf(
+						"could not convert %v metafield type from key %v",
+						NumberIntegerMetaFieldType,
+						key,
+					)
 				}
 
-				metafield.Value = false
+				metafield.Value = converted
 
 				return metafield, nil
 			case ListSingleLineTextFieldMetaFieldType:
-				if metafield.Value != nil {
-					var converted []string
-					err := json.Unmarshal([]byte(metafield.Value.(string)), &converted)
-					if err != nil {
-						return Metafield{}, fmt.Errorf(
-							"could not convert %v metafield type from key %v",
-							ListSingleLineTextFieldMetaFieldType,
-							key,
-						)
-					}
-
-					metafield.Value = converted
+				var converted []string
+				err := json.Unmarshal([]byte(metafield.Value.(string)), &converted)
+				if err != nil {
+					return Metafield{}, fmt.Errorf(
+						"could not convert %v metafield type from key %v",
+						ListSingleLineTextFieldMetaFieldType,
+						key,
+					)
 				}
+
+				metafield.Value = converted
 
 				return metafield, nil
 			default:
