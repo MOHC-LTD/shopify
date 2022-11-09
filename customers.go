@@ -24,6 +24,8 @@ type Customer struct {
 	CreatedAt time.Time
 	// UpdatedAt is the date and time (ISO 8601 format) when the customer information was last updated.
 	UpdatedAt time.Time
+	// Addresses are the addresses linked to the customer.
+	Addresses []CustomerAddress
 }
 
 // Customers is a collection of customers
