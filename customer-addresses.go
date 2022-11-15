@@ -46,3 +46,16 @@ type CustomerAddress struct {
 	// Zip - the postal code (for example, zip, postcode or Eircode) of the address
 	Zip string
 }
+
+type CustomerAddresses []CustomerAddress
+
+// GeyByID returns a customer address from a customer addresses list with matching IDs
+func (addresses CustomerAddresses) GetByID(id uint64) CustomerAddress {
+	for _, address := range addresses {
+		if address.ID == id {
+			return address
+		}
+	}
+
+	return CustomerAddress{}
+}
