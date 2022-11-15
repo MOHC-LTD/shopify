@@ -49,6 +49,7 @@ type CustomerAddress struct {
 
 type CustomerAddresses []CustomerAddress
 
+// GeyByID returns a customer address from a customer addresses list with matching IDs
 func (addresses CustomerAddresses) GetByID(id uint64) CustomerAddress {
 	for _, address := range addresses {
 		if address.ID == id {
