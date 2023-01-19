@@ -25,7 +25,7 @@ func TestMetafields_GetByKeyBoolean(t *testing.T) {
 	metafield.Value = booleanString
 	metafields := Metafields{metafield}
 
-	returnedMetafield, err := metafields.GetByKey(metafield.Key)
+	returnedMetafield, err := metafields.GetByKey(metafield.Key, metafield.Namespace)
 	if err != nil {
 		t.Errorf("An error was thrown: %v", err)
 	}
@@ -50,7 +50,7 @@ func TestMetafields_GetByKeyString(t *testing.T) {
 	metafield.Value = expectedValue
 	metafields := Metafields{metafield}
 
-	returnedMetafield, err := metafields.GetByKey(metafield.Key)
+	returnedMetafield, err := metafields.GetByKey(metafield.Key, metafield.Namespace)
 	if err != nil {
 		t.Errorf("An error was thrown: %v", err)
 	}
@@ -75,7 +75,7 @@ func TestMetafields_GetByKeyInteger(t *testing.T) {
 	metafield.Value = strconv.FormatInt(expectedValue, 10)
 	metafields := Metafields{metafield}
 
-	returnedMetafield, err := metafields.GetByKey(metafield.Key)
+	returnedMetafield, err := metafields.GetByKey(metafield.Key, metafield.Namespace)
 	if err != nil {
 		t.Errorf("An error was thrown: %v", err)
 	}
@@ -102,7 +102,7 @@ func TestMetafields_GetByKeyListSingleLineTextField(t *testing.T) {
 	metafield.Value = rawMetafieldValue
 	metafields := Metafields{metafield}
 
-	returnedMetafield, err := metafields.GetByKey(metafield.Key)
+	returnedMetafield, err := metafields.GetByKey(metafield.Key, metafield.Namespace)
 	if err != nil {
 		t.Errorf("An error was thrown: %v", err)
 	}
@@ -124,7 +124,7 @@ func TestMetafields_GetByKeyInvalid(t *testing.T) {
 	metafield.Key = ""
 	metafields := Metafields{metafield}
 
-	_, err := metafields.GetByKey("123")
+	_, err := metafields.GetByKey("123", "custom")
 	if err == nil {
 		t.Errorf("An error was thrown: %v", err)
 	}
