@@ -129,3 +129,55 @@ func TestMetafields_GetByKeyInvalid(t *testing.T) {
 		t.Errorf("An error was thrown: %v", err)
 	}
 }
+
+/*
+GIVEN I have an array of metafields with one metafield that has "custom" namespace
+WHEN I ask to get metafields by this namespace
+THEN the length of the metafields array returned must be what is expected
+*/
+func TestMetafields_GetByNamespaceOneMetafield(t *testing.T) {
+	// Expects
+	fake := faker.New()
+	metafieldsNamespace := "custom"
+	expectedValue := 1
+
+	metafield := Metafield{}
+	fake.Struct().Fill(&metafield)
+	metafield.Namespace = metafieldsNamespace
+	metafields := Metafields{metafield}
+
+	returnedMetafields, err := metafields.GetByNamespace("custom")
+	if err != nil {
+		t.Errorf("An error was thrown: %v", err)
+	}
+
+	if !reflect.DeepEqual(len(returnedMetafields), expectedValue) {
+		t.Errorf("Was expecting: %v got %v", len(returnedMetafields), expectedValue)
+	}
+}
+
+/*
+GIVEN I have a list of metafields with different namespace than "custom"
+WHEN I ask to get metafields with "custom" namespace
+THEN the returned value must be an empty array of Metafields
+*/
+func TestMetafields_GetByNamespaceNoMatch(t *testing.T) {
+	// Expects
+	fake := faker.New()
+	metafieldsNamespace := "namespace"
+	expectedValue := Metafields{}
+
+	metafield := Metafield{}
+	fake.Struct().Fill(&metafield)
+	metafield.Namespace = metafieldsNamespace
+	metafields := Metafields{metafield}
+
+	returnedMetafields, err := metafields.GetByNamespace("custom")
+	if err != nil {
+		t.Errorf("An error was thrown: %v", err)
+	}
+
+	if !reflect.DeepEqual(returnedMetafields, expectedValue) {
+		t.Errorf("Was expecting: %v got %v", returnedMetafields, expectedValue)
+	}
+}
