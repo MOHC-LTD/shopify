@@ -9,11 +9,11 @@ import (
 // Metafields are a flexible way to attach additional information to a Shopify resource (e.g. Product, Collection, etc.).
 type Metafields []Metafield
 
-// GetByKey gets a metafield via its key. Note defaults to string if type is not found. This is because most
+// GetByKey gets a metafield via its key and namespace. Note defaults to string if type is not found. This is because most
 // types are strings and there are a lot of different metafield types that would need to be caught.
-func (m Metafields) GetByKey(key string) (Metafield, error) {
+func (m Metafields) GetByKey(key string, namespace string) (Metafield, error) {
 	for _, metafield := range m {
-		if metafield.Key == key {
+		if metafield.Key == key && metafield.Namespace == namespace {
 			switch metafield.Type {
 			case NumberIntegerMetaFieldType:
 				if metafield.Value != "" {
@@ -60,6 +60,19 @@ func (m Metafields) GetByKey(key string) (Metafield, error) {
 	}
 
 	return Metafield{}, NewErrMetafieldNotFoundByKey(key)
+}
+
+// GetByNamespace gets a list of metafields under the same namespace.
+func (m Metafields) GetByNamespace(namespace string) (Metafields, error) {
+	var metafieldsInNamespace Metafields
+
+	for _, metafield := range m {
+		if metafield.Namespace == namespace {
+			metafieldsInNamespace = append(metafieldsInNamespace, metafield)
+		}
+	}
+
+	return metafieldsInNamespace, nil
 }
 
 // Types
