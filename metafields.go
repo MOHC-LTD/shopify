@@ -67,15 +67,15 @@ func (m Metafields) GetByKey(key string, namespace string) (Metafield, error) {
 
 // GetByNamespace gets a list of metafields under the same namespace.
 func (m Metafields) GetByNamespace(namespace string) (Metafields, error) {
-	var metafieldsInNamespace Metafields
+	meta := make(Metafields, 0, len(m))
 
 	for _, metafield := range m {
 		if metafield.Namespace == namespace {
-			metafieldsInNamespace = append(metafieldsInNamespace, metafield)
+			meta = append(meta, metafield)
 		}
 	}
 
-	return metafieldsInNamespace, nil
+	return meta, nil
 }
 
 // Types
