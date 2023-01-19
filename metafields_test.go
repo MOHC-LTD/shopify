@@ -1,13 +1,14 @@
 package shopify
 
 import (
+	"reflect"
 	"strconv"
 	"testing"
 
 	"github.com/jaswdr/faker"
 )
 
-/**
+/*
 GIVEN I have a single metafield
 WHEN I ask to get that metafield by its key when its of type boolean
 THEN the value returned is of the correct type and what is expected
@@ -34,7 +35,7 @@ func TestMetafields_GetByKeyBoolean(t *testing.T) {
 	}
 }
 
-/**
+/*
 GIVEN I have a single metafield
 WHEN I ask to get that metafield by its key when its of type string
 THEN the value returned is of the correct type and what is expected
@@ -59,7 +60,7 @@ func TestMetafields_GetByKeyString(t *testing.T) {
 	}
 }
 
-/**
+/*
 GIVEN I have a single metafield
 WHEN I ask to get that metafield by its key when its of type integer
 THEN the value returned is of the correct type and what is expected
@@ -84,7 +85,34 @@ func TestMetafields_GetByKeyInteger(t *testing.T) {
 	}
 }
 
-/**
+/*
+GIVEN I have a single metafield
+WHEN I ask to get that metafield by its key when its of type list.single_line_text_field
+THEN the value returned is of the correct type and what is expected
+*/
+func TestMetafields_GetByKeyListSingleLineTextField(t *testing.T) {
+	// Expects
+	fake := faker.New()
+	rawMetafieldValue := "[\"aa\",\"bb\"]" // encoded as json array
+	expectedValue := []string{"aa", "bb"}
+
+	metafield := Metafield{}
+	fake.Struct().Fill(&metafield)
+	metafield.Type = ListSingleLineTextFieldMetaFieldType
+	metafield.Value = rawMetafieldValue
+	metafields := Metafields{metafield}
+
+	returnedMetafield, err := metafields.GetByKey(metafield.Key)
+	if err != nil {
+		t.Errorf("An error was thrown: %v", err)
+	}
+
+	if !reflect.DeepEqual(returnedMetafield.Value.([]string), expectedValue) {
+		t.Errorf("Was expecting: %v got %v", returnedMetafield.Value.([]string), expectedValue)
+	}
+}
+
+/*
 GIVEN I have a single metafield
 WHEN I ask to get that metafield by an invalid key
 THEN the value returned is of the correct type and what is expected
