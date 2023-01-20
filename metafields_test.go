@@ -139,7 +139,7 @@ func TestMetafields_GetByNamespaceOneMetafield(t *testing.T) {
 	// Expects
 	fake := faker.New()
 	metafieldsNamespace := "custom"
-	expectedValue := 1
+	expectedReturnedAmount := 1
 
 	metafield := Metafield{}
 	fake.Struct().Fill(&metafield)
@@ -151,8 +151,12 @@ func TestMetafields_GetByNamespaceOneMetafield(t *testing.T) {
 		t.Errorf("An error was thrown: %v", err)
 	}
 
-	if !reflect.DeepEqual(len(returnedMetafields), expectedValue) {
-		t.Errorf("Was expecting: %v got %v", len(returnedMetafields), expectedValue)
+	if !reflect.DeepEqual(len(returnedMetafields), expectedReturnedAmount) {
+		t.Errorf("Was expecting: %v got %v", len(returnedMetafields), expectedReturnedAmount)
+	}
+
+	if !reflect.DeepEqual(metafields, returnedMetafields) {
+		t.Errorf("Was expecting: %v got %v", metafields, returnedMetafields)
 	}
 }
 
