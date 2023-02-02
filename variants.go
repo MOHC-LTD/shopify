@@ -83,4 +83,6 @@ const (
 type VariantRepository interface {
 	// Get gets a variant by its id
 	Get(id int64) (Variant, error)
+	// Create creates a new variant
+	Create(productID int64, variant Variant) (Variant, error)
 }
