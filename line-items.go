@@ -33,7 +33,6 @@ type LineItem struct {
 	TotalDiscountSet PriceSet
 	// DiscountAllocations is a list of the amounts allocated to the line item by discount applications.
 	DiscountAllocations DiscountAllocations
-	// TODO This line item struct is coupled to line items of a product and line items of an order
 	// Properties is an array of custom information for the item that has been added to the cart. Often used to provide product customization options.
 	Properties []Property
 }
