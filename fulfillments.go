@@ -43,7 +43,7 @@ type Fulfillment struct {
 		- confirmed: The carrier is aware of the shipment, but hasn't received it yet.
 		- in_transit: The shipment is being transported between shipping facilities on the way to its destination.
 		- out_for_delivery: The shipment is being delivered to its final destination.
-		- delivered: The shipment was succesfully delivered.
+		- delivered: The shipment was successfully delivered.
 		- failure: 	Something went wrong when pulling tracking information for the shipment, such as the tracking number was invalid or the shipment was canceled.
 	*/
 	ShipmentStatus string
@@ -51,14 +51,22 @@ type Fulfillment struct {
 	LocationID int64
 	// LineItems is a collection of historical records of each item in the fulfillment.
 	LineItems LineItems
+	// FulfillmentOrders is a required write only property describing the line items and fulfillment orders that this fulfillment fulfills.
+	//
+	// At least one fulfillment order is required when creating a fulfillment. Unless a fulfillment order has their LineItems field
+	// assigned with at least one line item and quantity, all line items of the specified fulfillment order will be fulfilled.
+	LineItemsByFulfillmentOrder FulfillmentOrders
 }
 
 // FulfillmentRepository manages fulfillments
 type FulfillmentRepository interface {
-	// Create creates a new fulfillment for an order
-	Create(orderID int64, fulfillment Fulfillment) (Fulfillment, error)
-	// Update updates the properties of a fulfillment
-	Update(orderID int64, fulfillmentID int64, update Fulfillment) (Fulfillment, error)
-	// Cancel cancels a fulfillment for a specific order
-	Cancel(orderID int64, fulfillmentID int64) error
+	// Create creates a new fulfillment against a number of fulfillment orders, with optional tracking information and
+	// customer notification
+	//
+	// LineItemsByFulfillmentOrder must be populated with at least one fulfillment order
+	Create(fulfillment Fulfillment) (Fulfillment, error)
+	// UpdateTracking updates the tracking details of a fulfillment
+	UpdateTracking(fulfillment Fulfillment) (Fulfillment, error)
+	// Cancel cancels a fulfillment
+	Cancel(fulfillmentID int64) error
 }
