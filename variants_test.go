@@ -15,7 +15,7 @@ func TestVariants_Exists(t *testing.T) {
 	}
 
 	if variants.Exists(2) {
-		t.Errorf("Was expecting: %v got %v", false, variants.Exists(1))
+		t.Errorf("Was expecting: %v got %v", false, variants.Exists(2))
 	}
 }
 
