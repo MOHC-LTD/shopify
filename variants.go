@@ -16,6 +16,28 @@ func (v Variants) GetByPosition(position int) (Variant, error) {
 	return Variant{}, ErrVariantNotFoundByPosition
 }
 
+// Get gets a variant by its ID
+func (v Variants) Get(ID int64) Variant {
+	for _, variant := range v {
+		if variant.ID == ID {
+			return variant
+		}
+	}
+
+	return Variant{}
+}
+
+// Exists checks to see if a variant exists by the ID
+func (v Variants) Exists(ID int64) bool {
+	for _, variant := range v {
+		if variant.ID == ID {
+			return true
+		}
+	}
+
+	return false
+}
+
 // GetOption1Values returns all the option1 values for each variant if they have one
 func (v Variants) GetOption1Values() []string {
 	option1s := make([]string, 0, len(v))
