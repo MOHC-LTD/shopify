@@ -10,8 +10,12 @@ type Fulfillment struct {
 	OrderID int64
 	// The name of the tracking company.
 	TrackingCompany string
+	// TrackingNumber is a tracking number provided by the shipping company.
+	TrackingNumber string
 	// TrackingNumbers is a list of tracking numbers, provided by the shipping company.
 	TrackingNumbers []string
+	// The URL of the tracking page for the fulfillment.
+	TrackingURL string
 	// The URLs of tracking pages for the fulfillment.
 	TrackingURLs []string
 	// Status is the status of the fulfillment.
