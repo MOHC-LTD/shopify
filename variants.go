@@ -85,4 +85,6 @@ type VariantRepository interface {
 	Get(id int64) (Variant, error)
 	// Create creates a new variant
 	Create(productID int64, variant Variant) (Variant, error)
+	// Delete deletes a variant
+	Delete(productID int64, variantID int64) error
 }
