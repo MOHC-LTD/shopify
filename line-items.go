@@ -42,7 +42,7 @@ type Property struct {
 	// Name is the name of the property
 	Name string
 	// Value is the value of the property
-	Value string
+	Value interface{}
 }
 
 // GetPropertyByName gets a line item property by its name
