@@ -1,4 +1,4 @@
-module github.com/MOHC-LTD/shopify
+module github.com/MOHC-LTD/shopify/v2
 
 go 1.16
 
