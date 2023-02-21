@@ -78,6 +78,15 @@ type Variant struct {
 			- the handle of a fulfillment service that has inventory management enabled: This must be the same fulfillment service referenced by the FulfillmentService property.
 	*/
 	InventoryManagement string
+	// Whether customers are allowed to place an order for the product variant when it's out of stock. Valid values:
+	/*
+		Valid values:
+
+			deny: Customers are not allowed to place orders for the product variant if it's out of stock.
+			continue: Customers are allowed to place orders for the product variant if it's out of stock.
+			Default value: deny.
+	*/
+	InventoryPolicy string
 	// InventoryQuantity is an aggregate of inventory across all locations. To adjust inventory at a specific location, use the InventoryLevel resource. Readonly.
 	InventoryQuantity int
 	// Price is the price of the product variant.
