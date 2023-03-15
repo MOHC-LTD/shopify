@@ -9,7 +9,7 @@ type CustomerAddressRepository interface {
 	// Update updates the address for the specified customer
 	Update(id int64, address CustomerAddress) (CustomerAddress, error)
 	// SetDefault sets an address to default for the specified customer
-	SetDefault(id int64, address CustomerAddress) (CustomerAddress, error)
+	SetDefault(id string, addressID string) (CustomerAddress, error)
 }
 
 type CustomerAddress struct {
