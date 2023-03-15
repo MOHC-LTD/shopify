@@ -8,6 +8,8 @@ type CustomerAddressRepository interface {
 	Delete(id int64, addressID int64) error
 	// Update updates the address for the specified customer
 	Update(id int64, address CustomerAddress) (CustomerAddress, error)
+	// SetDefault sets an address to default for the specified customer
+	SetDefault(id int64, addressID int64) (CustomerAddress, error)
 }
 
 type CustomerAddress struct {
