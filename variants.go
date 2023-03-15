@@ -16,6 +16,28 @@ func (v Variants) GetByPosition(position int) (Variant, error) {
 	return Variant{}, ErrVariantNotFoundByPosition
 }
 
+// Get gets a variant by its ID
+func (v Variants) Get(ID int64) Variant {
+	for _, variant := range v {
+		if variant.ID == ID {
+			return variant
+		}
+	}
+
+	return Variant{}
+}
+
+// Exists checks to see if a variant exists by the ID
+func (v Variants) Exists(ID int64) bool {
+	for _, variant := range v {
+		if variant.ID == ID {
+			return true
+		}
+	}
+
+	return false
+}
+
 // GetOption1Values returns all the option1 values for each variant if they have one
 func (v Variants) GetOption1Values() []string {
 	option1s := make([]string, 0, len(v))
@@ -56,6 +78,15 @@ type Variant struct {
 			- the handle of a fulfillment service that has inventory management enabled: This must be the same fulfillment service referenced by the FulfillmentService property.
 	*/
 	InventoryManagement string
+	// Whether customers are allowed to place an order for the product variant when it's out of stock. Valid values:
+	/*
+		Valid values:
+
+			deny: Customers are not allowed to place orders for the product variant if it's out of stock.
+			continue: Customers are allowed to place orders for the product variant if it's out of stock.
+			Default value: deny.
+	*/
+	InventoryPolicy string
 	// InventoryQuantity is an aggregate of inventory across all locations. To adjust inventory at a specific location, use the InventoryLevel resource. Readonly.
 	InventoryQuantity int
 	// Price is the price of the product variant.
@@ -85,4 +116,6 @@ type VariantRepository interface {
 	Get(id int64) (Variant, error)
 	// Create creates a new variant
 	Create(productID int64, variant Variant) (Variant, error)
+	// Delete deletes a variant
+	Delete(productID int64, variantID int64) error
 }
