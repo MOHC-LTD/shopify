@@ -56,6 +56,19 @@ func (m Metafields) GetByKey(key string, namespace string) (Metafield, error) {
 				metafield.Value = converted
 
 				return metafield, nil
+			case SingleLineTextFieldMetaFieldType:
+				converted, ok := metafield.Value.(string)
+				if !ok {
+					return Metafield{}, fmt.Errorf(
+						"could not convert %v metafield type from key %v",
+						SingleLineTextFieldMetaFieldType,
+						key,
+					)
+				}
+
+				metafield.Value = converted
+
+				return metafield, nil
 			default:
 				return metafield, nil
 			}

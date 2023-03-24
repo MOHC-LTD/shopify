@@ -114,6 +114,33 @@ func TestMetafields_GetByKeyListSingleLineTextField(t *testing.T) {
 
 /*
 GIVEN I have a single metafield
+WHEN I ask to get that metafield by its key when its of type single_line_text_field
+THEN the value returned is of the correct type and what is expected
+*/
+func TestMetafields_GetByKeySingleLineTextField(t *testing.T) {
+	// Expects
+	fake := faker.New()
+	rawMetafieldValue := "foo"
+	expectedValue := "foo"
+
+	metafield := Metafield{}
+	fake.Struct().Fill(&metafield)
+	metafield.Type = SingleLineTextFieldMetaFieldType
+	metafield.Value = rawMetafieldValue
+	metafields := Metafields{metafield}
+
+	returnedMetafield, err := metafields.GetByKey(metafield.Key, metafield.Namespace)
+	if err != nil {
+		t.Errorf("An error was thrown: %v", err)
+	}
+
+	if !reflect.DeepEqual(returnedMetafield.Value.(string), expectedValue) {
+		t.Errorf("Was expecting: %v got %v", returnedMetafield.Value.(string), expectedValue)
+	}
+}
+
+/*
+GIVEN I have a single metafield
 WHEN I ask to get that metafield by an invalid key
 THEN the value returned is of the correct type and what is expected
 */
