@@ -26,6 +26,8 @@ type Customer struct {
 	UpdatedAt time.Time
 	// Addresses are the addresses linked to the customer.
 	Addresses CustomerAddresses
+	// Metafields are any meta field data linked to the customer
+	Metafields Metafields
 }
 
 // Customers is a collection of customers
