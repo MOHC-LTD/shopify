@@ -150,6 +150,10 @@ type OrderQuery struct {
 	*/
 	FinancialStatus string
 	/*
+		The maximum number of results to show on a page (250 is the current max).
+	*/
+	Limit int
+	/*
 		Filter orders by their status.
 
 		(default: open)
