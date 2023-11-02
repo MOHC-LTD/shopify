@@ -124,6 +124,10 @@ type NoteAttribute struct {
 // See https://shopify.dev/docs/admin-api/rest/reference/orders/order#index-2021-04
 type OrderQuery struct {
 	/*
+		Show orders created at or after date.
+	*/
+	CreatedAtMin time.Time
+	/*
 		Filter orders by their fulfillment status.
 
 		(default: any)
