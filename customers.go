@@ -124,3 +124,9 @@ type CustomerRepository interface {
 	// GetByQuery gets the customers matching the passed query
 	GetByQuery(fields []string, query CustomerSearchQuery) (Customers, error)
 }
+
+// CustomerRepository manages customers
+type CustomerRepository interface {
+	// Orders retrieves a list of orders belonging to a customer
+	Orders(id int64, query OrderQuery) (Orders, error)
+}
