@@ -2,6 +2,8 @@ package shopify
 
 // CustomerAddressRepository maintains the customer addresses of a shop.
 type CustomerAddressRepository interface {
+	// List gets all customer addresses
+	List(id int64) (CustomerAddresses, error)
 	// Create creates a new address against the specified customer
 	Create(id int64, address CustomerAddress) (CustomerAddress, error)
 	// Delete deletes the specified address for the specified customer
