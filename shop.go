@@ -12,6 +12,8 @@ type Shop interface {
 	Fulfillments() FulfillmentRepository
 	// FulfillmentEvents represent tracking events that belong to a fulfillment of one or more items in an order.
 	FulfillmentEvents() FulfillmentEventRepository
+	// FulfillmentOrders represent groups of line items that can be fulfilled from the same location.
+	FulfillmentOrders() FulfillmentOrderRepository
 	// Variants represents options or versions that make up an individual product.
 	Variants() VariantRepository
 	// Products are the items that are sold by the shop.
@@ -24,4 +26,6 @@ type Shop interface {
 	ProductImages() ProductImageRepository
 	// Customers are the customers in the shop
 	Customers() CustomerRepository
+	// Metafields are the metafields associated with the shop
+	Metafields() MetafieldRepository
 }

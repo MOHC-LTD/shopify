@@ -31,4 +31,26 @@ type LineItem struct {
 	TotalDiscount string
 	// TotalDiscountSet is the total amount allocated to the line item in the presentment currency.
 	TotalDiscountSet PriceSet
+	// DiscountAllocations is a list of the amounts allocated to the line item by discount applications.
+	DiscountAllocations DiscountAllocations
+	// Properties is an array of custom information for the item that has been added to the cart. Often used to provide product customization options.
+	Properties []Property
+}
+
+// Property holds custom information for the item that has been added to the cart. Often used to provide product customization options.
+type Property struct {
+	// Name is the name of the property
+	Name string
+	// Value is the value of the property
+	Value interface{}
+}
+
+// GetPropertyByName gets a line item property by its name
+func (lineItem LineItem) GetPropertyByName(name string) Property {
+	for _, property := range lineItem.Properties {
+		if property.Name == name {
+			return property
+		}
+	}
+	return Property{}
 }
