@@ -28,4 +28,8 @@ type Shop interface {
 	Customers() CustomerRepository
 	// Metafields are the metafields associated with the shop
 	Metafields() MetafieldRepository
+	// Blogs are the blogs associated with the shop
+	Blogs() BlogRepository
+	// Articles are the articles associated with the shop
+	Articles() ArticleRepository
 }
