@@ -58,6 +58,10 @@ type Collection interface {
 type CollectionRepository interface {
 	// Get retrieves a single collection
 	Get(id int64) (Collection, error)
+	// GetAllSmartCollections retrieves all smart collections
+	GetAllSmartCollections() (Collections, error)
+	// GetAllCustomCollections retrieves all custom collections
+	GetAllCustomCollections() (Collections, error)
 	// Products retrieves a list product that belonging to a collection
 	Products(id int64) (Products, error)
 }

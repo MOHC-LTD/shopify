@@ -50,7 +50,7 @@ type Article struct {
 // ArticleRepository maintains the Articles of a shop.
 type ArticleRepository interface {
 	// Get retrieves a single article
-	Get(id int64) (Article, error)
-	// GetByBlogID retrieves a list of all articles from a blog
+	Get(blogID, id int64) (Article, error)
+	// GetByBlogID retrieves a list of all articles in a blog
 	GetByBlogID(blogID int64) (Articles, error)
 }
