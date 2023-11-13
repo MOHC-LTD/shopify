@@ -11,10 +11,10 @@ type Articles []Article
 type Article struct {
 	// Author is he name of the author of the article.
 	Author string
-	// BlogId is the ID of the blog containing the article.
-	BlogId string
-	// BodyHtml is the text of the body of the article, complete with HTML markup.
-	BodyHtml string
+	// BlogID is the ID of the blog containing the article.
+	BlogID string
+	// BodyHTML is the text of the body of the article, complete with HTML markup.
+	BodyHTML string
 	// CreatedAt The date and time (ISO 8601 format) when the article was created.
 	CreatedAt time.Time
 	// ID is the ID for the collection.
