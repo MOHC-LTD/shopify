@@ -26,6 +26,8 @@ type Customer struct {
 	UpdatedAt time.Time
 	// Addresses are the addresses linked to the customer.
 	Addresses CustomerAddresses
+	// Metafields are any meta field data linked to the customer
+	Metafields Metafields
 }
 
 // Customers is a collection of customers
@@ -121,4 +123,6 @@ type CustomerRepository interface {
 	Get(id int64) (Customer, error)
 	// GetByQuery gets the customers matching the passed query
 	GetByQuery(fields []string, query CustomerSearchQuery) (Customers, error)
+	// Orders retrieves a list of orders belonging to a customer
+	Orders(id int64, query OrderQuery) (Orders, error)
 }
