@@ -93,6 +93,8 @@ type ProductRepository interface {
 	Create(product Product) (Product, error)
 	// Update updates a single product
 	Update(product Product) (Product, error)
+	// Delete a single product
+	Delete(productID int64) error
 }
 
 // ProductCreator supplies methods for creating products in the shopify shop
