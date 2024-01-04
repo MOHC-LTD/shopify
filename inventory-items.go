@@ -1,12 +1,14 @@
 package shopify
 
+import "time"
+
 // InventoryItemRepository manages inventory items
 type InventoryItemRepository interface {
 	// Get retrieves an inventory item by its id
 	Get(id int64) (InventoryItem, error)
 }
 
-type CountryHarmonizedSystemCode struct {
+type countryHarmonizedSystemCode struct {
 	HarmonizedSystemCode string
 	CountryCode          string
 }
@@ -18,9 +20,9 @@ type InventoryItem struct {
 	// The unique SKU (stock keeping unit) of the inventory item
 	SKU string
 	// The date and time when the inventory level was created
-	CreatedAt string
+	CreatedAt time.Time
 	// The date and time when the inventory level was last modified
-	UpdatedAt string
+	UpdatedAt time.Time
 	// Whether a customer needs to provide a shipping address when placing an order containing the inventory item
 	RequiresShipping bool
 	// The unit cost of the inventory item
@@ -30,11 +32,11 @@ type InventoryItem struct {
 	// The province code of where the item came from (ISO)
 	ProvinceCodeOfOrigin string
 	// The general Harmonized System (HS) code for the inventory item. Used if a country-specific HS code (`countryHarmonizedSystemCode`) is not available.
-	HarmonizedSystemCode int
+	HarmonizedSystemCode int64
 	// Whether inventory levels are tracked for the item. If true, then the inventory quantity changes are tracked by Shopify.
 	Tracked bool
 	// An array of country-specific Harmonized System (HS) codes for the item. Used to determine duties when shipping the inventory item to certain countries.
-	CountryHarmonizedSystemCodes []CountryHarmonizedSystemCode
+	CountryHarmonizedSystemCodes []countryHarmonizedSystemCode
 	// The Graphql API for the inventory item
 	AdminGraphqlApiId string
 }
