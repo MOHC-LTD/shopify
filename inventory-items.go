@@ -8,9 +8,12 @@ type InventoryItemRepository interface {
 	Get(id int64) (InventoryItem, error)
 }
 
-type countryHarmonizedSystemCode struct {
+// Country-specific Harmonized System (HS) codes for the item.
+type CountryHarmonizedSystemCode struct {
+	// The general Harmonized System (HS) code for the inventory item. Used if a country-specific HS code (`countryHarmonizedSystemCode`) is not available.
 	HarmonizedSystemCode string
-	CountryCode          string
+	// The country code
+	CountryCode string
 }
 
 // InventoryLevel represents the amount of an item that there is available in a shop
@@ -36,7 +39,7 @@ type InventoryItem struct {
 	// Whether inventory levels are tracked for the item. If true, then the inventory quantity changes are tracked by Shopify.
 	Tracked bool
 	// An array of country-specific Harmonized System (HS) codes for the item. Used to determine duties when shipping the inventory item to certain countries.
-	CountryHarmonizedSystemCodes []countryHarmonizedSystemCode
+	CountryHarmonizedSystemCodes []CountryHarmonizedSystemCode
 	// The Graphql API for the inventory item
 	AdminGraphqlApiId string
 }
