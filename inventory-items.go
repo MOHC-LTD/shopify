@@ -4,7 +4,7 @@ import "time"
 
 // InventoryItemRepository manages inventory items
 type InventoryItemRepository interface {
-	// Get retrieves an inventory item by its id
+	// Get retrieves an inventory item by its id.
 	Get(id int64) (InventoryItem, error)
 }
 
