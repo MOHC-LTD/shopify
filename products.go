@@ -20,6 +20,8 @@ type Product struct {
 	ID int64
 	// Images are the images of the product
 	Images ProductImages
+	// Meta are the metafields of the product
+	Meta []Metafield
 	// ProductType is a categorization for the product used for filtering and searching products.
 	ProductType string
 	// PublishedAt is the date and time the product was published.
