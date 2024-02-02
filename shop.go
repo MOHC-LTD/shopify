@@ -34,4 +34,6 @@ type Shop interface {
 	Blogs() BlogRepository
 	// Articles are the articles associated with the shop
 	Articles() ArticleRepository
+	// Webhooks are the webhooks associated with the shop/application
+	Webhooks() WebhookRepository
 }
