@@ -105,6 +105,8 @@ type Order struct {
 	TotalTax string
 	// TotalTaxSet is the total tax applied to the order in shop and presentment currencies.
 	TotalTaxSet PriceSet
+	// SourceName is the source of the checkout
+	SourceName string
 	// UpdatedAt is the date and time when the order was last modified.
 	UpdatedAt time.Time
 }
