@@ -36,4 +36,6 @@ type Shop interface {
 	Articles() ArticleRepository
 	// Webhooks are the webhooks associated with the shop/application
 	Webhooks() WebhookRepository
+	// Transactions are the transactions associated to an order.
+	Transactions() TransactionRepository
 }
