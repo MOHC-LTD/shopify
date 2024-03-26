@@ -4,7 +4,7 @@ import "time"
 
 // TransactionRepository manages order transactions
 type TransactionRepository interface {
-	// Get retrieves all order transactions by order ID.
+	// List retrieves all order transactions by order ID.
 	List(orderID int64) (Transactions, error)
 	// Get retrieves an order transaction by its IDs.
 	Get(orderID int64, id int64) (Transaction, error)
