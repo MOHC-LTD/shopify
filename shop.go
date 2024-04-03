@@ -8,6 +8,8 @@ package shopify
 type Shop interface {
 	// Orders are the orders in the shop
 	Orders() OrderRepository
+	// DraftOrders are the draft orders in the shop
+	DraftOrders() DraftOrderRepository
 	// Fulfillments - you can use the Fulfillment resource to view, create, modify, or delete an order's or fulfillment order's fulfillments.
 	Fulfillments() FulfillmentRepository
 	// FulfillmentEvents represent tracking events that belong to a fulfillment of one or more items in an order.
