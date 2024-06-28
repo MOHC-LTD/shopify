@@ -6,6 +6,8 @@ import "time"
 type InventoryItemRepository interface {
 	// Get retrieves an inventory item by its id.
 	Get(id int64) (InventoryItem, error)
+	// Update updates an inventory item
+	Update(inventoryItem InventoryItem) (InventoryItem, error)
 }
 
 // Country-specific Harmonized System (HS) codes for the item.
