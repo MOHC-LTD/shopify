@@ -8,21 +8,21 @@ import (
 )
 
 // ConvertToInt converts strings, float64 or int64 to int
-func ConvertToInt(v any) (int, error) {
+func ConvertToInt64(v any) (int64, error) {
 	switch value := any(v).(type) {
-	case int:
+	case int64:
 		return value, nil
 	case float64:
-		return int(value), nil
-	case int64:
-		return int(value), nil
+		return int64(value), nil
+	case int:
+		return int64(value), nil
 	case string:
 		converted, err := strconv.ParseInt(v.(string), 0, 64)
 		if err != nil {
 			fmt.Println("Error parsing string to int:", err)
 			return 0, err
 		}
-		return int(converted), nil
+		return converted, nil
 	default:
 		return 0, fmt.Errorf("unsupported type %T", v)
 	}
@@ -38,7 +38,7 @@ func (m Metafields) GetByKey(key string, namespace string) (Metafield, error) {
 		if metafield.Key == key && metafield.Namespace == namespace {
 			switch metafield.Type {
 			case NumberIntegerMetaFieldType:
-				converted, err := ConvertToInt(metafield.Value)
+				converted, err := ConvertToInt64(metafield.Value)
 				if err != nil {
 					return Metafield{}, fmt.Errorf(
 						"could not convert %v metafield type from key %v",
