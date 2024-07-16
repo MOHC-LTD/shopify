@@ -59,6 +59,8 @@ type Variant struct {
 	SKU string
 	// Title is the title of the product variant.
 	Title string
+	// Meta are the metafields of the variant
+	Meta Metafields
 	// Option1 is a custom property that a shop owner uses to define product variants.
 	Option1 string
 	// Option2 is a custom property that a shop owner uses to define product variants.
