@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// ConvertToInt converts strings, float64 or int64 to int
+// ConvertToInt64 converts strings, float64 or int to int64
 func ConvertToInt64(v any) (int64, error) {
 	switch value := any(v).(type) {
 	case int64:
