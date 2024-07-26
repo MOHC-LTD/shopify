@@ -1,5 +1,7 @@
 package shopify
 
+import "fmt"
+
 // LineItems is a collection of line items
 type LineItems []LineItem
 
@@ -48,7 +50,8 @@ type Property struct {
 // GetPropertyByName gets a line item property by its name
 func (lineItem LineItem) GetPropertyByName(name string) Property {
 	for _, property := range lineItem.Properties {
-		if property.Name == name {
+		// The _ indicates a hidden property, see here: https://shopify.dev/docs/api/liquid/objects/line_item#line_item-properties
+		if property.Name == name || property.Name == fmt.Sprintf("_%s", name) {
 			return property
 		}
 	}
