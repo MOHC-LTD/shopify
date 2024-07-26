@@ -52,6 +52,7 @@ type CustomerSearchQuery struct {
 	FirstName               string
 	FirstOrderDate          string
 	ID                      string
+	IDs                     []int64
 	LastAbandonedOrderDate  string
 	LastName                string
 	MultipassIdentifier     string
@@ -123,6 +124,8 @@ type CustomerRepository interface {
 	Get(id int64) (Customer, error)
 	// GetByQuery gets the customers matching the passed query
 	GetByQuery(fields []string, query CustomerSearchQuery) (Customers, error)
+	// List gets the customers matching the passed query
+	List(query CustomerSearchQuery) (Customers, error)
 	// Orders retrieves a list of orders belonging to a customer
 	Orders(id int64, query OrderQuery) (Orders, error)
 }
