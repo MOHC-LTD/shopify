@@ -17,6 +17,8 @@ type ProductImage struct {
 	Position int
 	// ProductID is unique numeric identifier of the product associated with the image.
 	ProductID int64
+	// Src specifies the location of the product image
+	Src string
 	// VariantIDs is a array of variant ids associated with the image.
 	VariantIDs []int64
 	// UpdatedAt is the date and time when the product image was last modified.
