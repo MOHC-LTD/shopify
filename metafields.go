@@ -51,11 +51,25 @@ func (m Metafields) GetByKey(key string, namespace string) (Metafield, error) {
 
 				return metafield, nil
 			case BooleanMetaFieldType:
-				converted, err := strconv.ParseBool(metafield.Value.(string))
-				if err != nil {
+				var converted bool
+				switch v := metafield.Value.(type) {
+				case bool:
+					converted = v
+				case string:
+					var err error
+					converted, err = strconv.ParseBool(v)
+					if err != nil {
+						return Metafield{}, fmt.Errorf(
+							"could not convert %v metafield type from key %v",
+							BooleanMetaFieldType,
+							key,
+						)
+					}
+				default:
 					return Metafield{}, fmt.Errorf(
-						"could not convert %v metafield type from key %v",
-						NumberIntegerMetaFieldType,
+						"unexpected type %T for %v metafield type from key %v",
+						metafield.Value,
+						BooleanMetaFieldType,
 						key,
 					)
 				}
