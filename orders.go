@@ -75,7 +75,7 @@ type Order struct {
 	NoteAttributes NoteAttributes
 	// OrderNumber tells you that this is the shop's nth order.
 	OrderNumber int
-	// orderStatusURL to find the order status
+	// OrderStatusURL to find the order status
 	OrderStatusURL string
 	// PresentmentCurrency is the presentment currency that was used to display prices to the customer.
 	PresentmentCurrency string
