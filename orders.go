@@ -75,7 +75,7 @@ type Order struct {
 	NoteAttributes NoteAttributes
 	// OrderNumber tells you that this is the shop's nth order.
 	OrderNumber int
-	// OrderStatusURL to find the order status
+	// OrderStatusURL is the Thank You page (Shopify doubles it as a order status page)
 	OrderStatusURL string
 	// PresentmentCurrency is the presentment currency that was used to display prices to the customer.
 	PresentmentCurrency string
