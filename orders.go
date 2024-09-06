@@ -193,8 +193,8 @@ type OrderRepository interface {
 	Open(id int64) (Order, error)
 	// Create creates a new order
 	Create(order Order) (Order, error)
-	// Create creates a new order
-	CreateSkipCheckout(order Order) (Order, error)
+	// Create creates a new fulfilled order
+	CreateFulfilled(order Order) (Order, error)
 	// Update updates a single order
 	Update(order Order) (Order, error)
 	// CreateMetafield creates a single metafield for an order
