@@ -35,6 +35,8 @@ type Order struct {
 	CurrentTotalTaxSet PriceSet
 	// Customer is information about the customer.
 	Customer Customer
+	// CustomerLocale is a two or three-letter language code, optionally followed by a region modifier.
+	CustomerLocale string
 	// DiscountApplications is an ordered list of discount applications
 	DiscountApplications DiscountApplications
 	// Email is the customer's email address.
