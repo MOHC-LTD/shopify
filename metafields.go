@@ -249,6 +249,8 @@ type MetafieldResource struct {
 type MetafieldRepository interface {
 	// List gets all the metafields
 	List(query MetafieldQuery) (Metafields, error)
+	// Create creates a new metafield
+	Create(metafield Metafield) (Metafield, error)
 }
 
 // MetafieldQuery are properties that can be used to filter the returned metafields
@@ -256,6 +258,12 @@ type MetafieldRepository interface {
 type MetafieldQuery struct {
 	// Resource is the resource and ID that the metafields are attached to
 	Resource MetafieldResource
+	// Namespace is the container for a group of metafields that the metafield is or will be associated with
+	Namespace string
+	// Type is the type of data that is stored in the metafield
+	Type string
+	// Key is the unique identifier for the metafield with its namespace
+	Key string
 }
 
 // ErrMetafieldNotFoundByKey is thrown when a metafield could not be found by its key
