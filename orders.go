@@ -75,8 +75,6 @@ type Order struct {
 	NoteAttributes NoteAttributes
 	// OrderNumber tells you that this is the shop's nth order.
 	OrderNumber int
-	// OrderStatusURL the URL pointing to the order status web page, if applicable.
-	OrderStatusURL string
 	// PresentmentCurrency is the presentment currency that was used to display prices to the customer.
 	PresentmentCurrency string
 	// ProcessedAt is the date and time the order was created at
@@ -193,8 +191,6 @@ type OrderRepository interface {
 	Open(id int64) (Order, error)
 	// Create creates a new order
 	Create(order Order) (Order, error)
-	// Create creates a new fulfilled order
-	CreateFulfilled(order Order) (Order, error)
 	// Update updates a single order
 	Update(order Order) (Order, error)
 	// CreateMetafield creates a single metafield for an order
