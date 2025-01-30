@@ -198,3 +198,12 @@ type OrderRepository interface {
 	// UpdateMetafield updates a single metafield
 	UpdateMetafield(orderID int64, metafield Metafield) (Metafield, error)
 }
+
+func (noteAttributes NoteAttributes) noteAttributeExistInList(attribute NoteAttribute) bool {
+	for _, current := range noteAttributes {
+		if current.Name == attribute.Name && current.Value == attribute.Value {
+			return true
+		}
+	}
+	return false
+}
