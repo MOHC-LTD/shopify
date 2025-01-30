@@ -199,7 +199,7 @@ type OrderRepository interface {
 	UpdateMetafield(orderID int64, metafield Metafield) (Metafield, error)
 }
 
-func (noteAttributes NoteAttributes) hasNoteAttribute(attribute NoteAttribute) bool {
+func (noteAttributes NoteAttributes) HasNoteAttribute(attribute NoteAttribute) bool {
 	for _, current := range noteAttributes {
 		if current.Name == attribute.Name && current.Value == attribute.Value {
 			return true
