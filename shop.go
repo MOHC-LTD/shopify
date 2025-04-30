@@ -28,6 +28,8 @@ type Shop interface {
 	ProductImages() ProductImageRepository
 	// Customers are the customers in the shop
 	Customers() CustomerRepository
+	// CustomerAddresses are the customers addresses in the shop
+	CustomerAddresses() CustomerAddressRepository
 	// Metafields are the metafields associated with the shop
 	Metafields() MetafieldRepository
 	// Blogs are the blogs associated with the shop
