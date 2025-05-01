@@ -17,6 +17,8 @@ type LineItem struct {
 	ProductID int64
 	// Quantity is the number of items that were purchased.
 	Quantity int
+	// RequiresShipping is whether the item requires shipping.
+	RequiresShipping bool
 	// SKU is the item's SKU (stock keeping unit).
 	SKU string
 	// Title is the title of the product.
