@@ -95,6 +95,8 @@ type Variant struct {
 	Price string
 	// CompareAtPrice is the price of the product variant before an adjustment or a sale.
 	CompareAtPrice string
+	// Taxable indicates whether the product variant is subject to sales tax.
+	Taxable bool
 	// ProductID is the unique numeric identifier for the product.
 	ProductID int64
 	// Barcode is the barcode, UPC, or ISBN number for the product.
